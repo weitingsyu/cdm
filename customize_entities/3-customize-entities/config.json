@@ -1,0 +1,19 @@
+{
+  "defaultNamespace" : "local",
+  "adapters" : [
+    {
+      "type" : "local",
+      "config" : {
+        "root" : "./3-customize-entities"
+      },
+      "namespace" : "local"
+    },
+    {
+      "type" : "local",
+      "config" : {
+        "root" : ".././example-public-standards"
+      },
+      "namespace" : "cdm"
+    }
+  ]
+}
