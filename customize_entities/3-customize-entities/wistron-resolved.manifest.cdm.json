@@ -1,0 +1,42 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "cdm:/foundations.cdm.json"
+    }
+  ],
+  "manifestName" : "default.manifest.cdm.json",
+  "entities" : [
+    {
+      "type" : "LocalEntity",
+      "entityName" : "Performance",
+      "entityPath" : "local:/Performance.cdm.json/Performance",
+      "dataPartitions" : [
+        {
+          "lastFileStatusCheckTime" : "0001-01-01T08:00:00.000Z",
+          "lastFileModifiedTime" : "0001-01-01T08:00:00.000Z",
+          "location" : "local:/Performance/partition-data.csv",
+          "exhibitsTraits" : [
+            {
+              "traitReference" : "is.partition.format.CSV",
+              "arguments" : [
+                "true",
+                ","
+              ]
+            }
+          ],
+          "arguments" : [ ]
+        }
+      ],
+      "lastFileStatusCheckTime" : "0001-01-01T08:00:00.000Z",
+      "lastFileModifiedTime" : "0001-01-01T08:00:00.000Z",
+      "lastChildFileModifiedTime" : "0001-01-01T08:00:00.000Z"
+    },
+    {
+      "type" : "LocalEntity",
+      "entityName" : "LocalPerformance",
+      "entityPath" : "LocalPerformance.cdm.json/LocalPerformance"
+    }
+  ],
+  "lastFileStatusCheckTime" : "0001-01-01T08:00:00.000Z"
+}

@@ -1,0 +1,25 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "cdm:/wistron/BasicInfo.cdm.json"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "Performance",
+      "hasAttributes" : [
+        {
+          "name" : "ads",
+          "dataType" : "integer",
+          "description" : "產品庫存量(天數)"
+        },
+        {
+          "name" : "yield_rate",
+          "dataType" : "float",
+          "description" : "生產良率 "
+        }
+      ]
+    }
+  ]
+}
