@@ -1,0 +1,169 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "/Performance.cdm.json",
+      "moniker" : "resolvedFrom"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "Performance",
+      "attributeContext" : {
+        "type" : "entity",
+        "name" : "Performance",
+        "definition" : "resolvedFrom/Performance",
+        "contents" : [
+          {
+            "type" : "entityReferenceExtends",
+            "name" : "extends",
+            "parent" : "Performance/attributeContext/Performance",
+            "contents" : [
+              {
+                "type" : "entity",
+                "name" : "FinancialBasic",
+                "parent" : "Performance/attributeContext/Performance/extends",
+                "definition" : "resolvedFrom/FinancialBasic",
+                "contents" : [
+                  {
+                    "type" : "attributeDefinition",
+                    "name" : "bg",
+                    "parent" : "Performance/attributeContext/Performance/extends/FinancialBasic",
+                    "definition" : "resolvedFrom/FinancialBasic/hasAttributes/bg",
+                    "contents" : [
+                      "Performance/hasAttributes/bg"
+                    ]
+                  },
+                  {
+                    "type" : "attributeDefinition",
+                    "name" : "site",
+                    "parent" : "Performance/attributeContext/Performance/extends/FinancialBasic",
+                    "definition" : "resolvedFrom/FinancialBasic/hasAttributes/site",
+                    "contents" : [
+                      "Performance/hasAttributes/site"
+                    ]
+                  },
+                  {
+                    "type" : "attributeDefinition",
+                    "name" : "product",
+                    "parent" : "Performance/attributeContext/Performance/extends/FinancialBasic",
+                    "definition" : "resolvedFrom/FinancialBasic/hasAttributes/product",
+                    "contents" : [
+                      "Performance/hasAttributes/product"
+                    ]
+                  },
+                  {
+                    "type" : "attributeDefinition",
+                    "name" : "type",
+                    "parent" : "Performance/attributeContext/Performance/extends/FinancialBasic",
+                    "definition" : "resolvedFrom/FinancialBasic/hasAttributes/type",
+                    "contents" : [
+                      "Performance/hasAttributes/type"
+                    ]
+                  },
+                  {
+                    "type" : "attributeDefinition",
+                    "name" : "reportingMonth",
+                    "parent" : "Performance/attributeContext/Performance/extends/FinancialBasic",
+                    "definition" : "resolvedFrom/FinancialBasic/hasAttributes/reportingMonth",
+                    "contents" : [
+                      "Performance/hasAttributes/reportingMonth"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "yieldRate",
+            "parent" : "Performance/attributeContext/Performance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/yieldRate",
+            "contents" : [
+              "Performance/hasAttributes/yieldRate"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "scrapRate",
+            "parent" : "Performance/attributeContext/Performance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/scrapRate",
+            "contents" : [
+              "Performance/hasAttributes/scrapRate"
+            ]
+          }
+        ]
+      },
+      "displayName" : "Performance",
+      "description" : "This is a performance entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "bg",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/extends/FinancialBasic/bg",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "site",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/extends/FinancialBasic/site",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "product",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/extends/FinancialBasic/product",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "type",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/extends/FinancialBasic/type",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "reportingMonth",
+          "appliedTraits" : [
+            "is.dataFormat.date",
+            "means.measurement.date"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/extends/FinancialBasic/reportingMonth",
+          "dataFormat" : "Date"
+        },
+        {
+          "name" : "yieldRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/yieldRate",
+          "dataFormat" : "Float"
+        },
+        {
+          "name" : "scrapRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/scrapRate",
+          "dataFormat" : "Float"
+        }
+      ]
+    }
+  ]
+}

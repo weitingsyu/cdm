@@ -1,0 +1,59 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "Performance.cdm.json",
+      "moniker" : "resolvedFrom"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "LocalPerformance",
+      "attributeContext" : {
+        "type" : "entity",
+        "name" : "LocalPerformance",
+        "definition" : "resolvedFrom/Performance",
+        "contents" : [
+          {
+            "type" : "attributeDefinition",
+            "name" : "ads",
+            "parent" : "LocalPerformance/attributeContext/LocalPerformance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/ads",
+            "contents" : [
+              "LocalPerformance/hasAttributes/ads"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "yield_rate",
+            "parent" : "LocalPerformance/attributeContext/LocalPerformance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/yield_rate",
+            "contents" : [
+              "LocalPerformance/hasAttributes/yield_rate"
+            ]
+          }
+        ]
+      },
+      "hasAttributes" : [
+        {
+          "name" : "ads",
+          "appliedTraits" : [
+            "is.dataFormat.integer"
+          ],
+          "attributeContext" : "LocalPerformance/attributeContext/LocalPerformance/ads",
+          "dataFormat" : "Int32",
+          "description" : "產品庫存量(天數)"
+        },
+        {
+          "name" : "yield_rate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "LocalPerformance/attributeContext/LocalPerformance/yield_rate",
+          "dataFormat" : "Float",
+          "description" : "生產良率 "
+        }
+      ]
+    }
+  ]
+}

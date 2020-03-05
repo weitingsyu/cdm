@@ -1,0 +1,43 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "cdm:/foundations.cdm.json"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "FinancialBasic",
+      "displayName" : "FinancialBasic",
+      "description" : "This is a financial basic entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "bg",
+          "purpose" : "hasA",
+          "dataType" : "string"
+        },
+        {
+          "name" : "site",
+          "purpose" : "hasA",
+          "dataType" : "string"
+        },
+        {
+          "name" : "product",
+          "purpose" : "hasA",
+          "dataType" : "string"
+        },
+        {
+          "name" : "type",
+          "purpose" : "hasA",
+          "dataType" : "string"
+        },
+        {
+          "name" : "reportingMonth",
+          "purpose" : "hasA",
+          "dataType" : "date"
+        }
+      ]
+    }
+  ]
+}

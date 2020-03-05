@@ -1,0 +1,150 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "/Performance.cdm.json",
+      "moniker" : "resolvedFrom"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "Performance",
+      "attributeContext" : {
+        "type" : "entity",
+        "name" : "Performance",
+        "definition" : "resolvedFrom/Performance",
+        "contents" : [
+          {
+            "type" : "entityReferenceExtends",
+            "name" : "extends",
+            "parent" : "Performance/attributeContext/Performance",
+            "contents" : [
+              {
+                "type" : "entity",
+                "name" : "BasicInfo",
+                "parent" : "Performance/attributeContext/Performance/extends",
+                "definition" : "resolvedFrom/BasicInfo",
+                "contents" : [
+                  {
+                    "type" : "attributeDefinition",
+                    "name" : "bg",
+                    "parent" : "Performance/attributeContext/Performance/extends/BasicInfo",
+                    "definition" : "resolvedFrom/BasicInfo/hasAttributes/bg",
+                    "contents" : [
+                      "Performance/hasAttributes/bg"
+                    ]
+                  },
+                  {
+                    "type" : "attributeDefinition",
+                    "name" : "site",
+                    "parent" : "Performance/attributeContext/Performance/extends/BasicInfo",
+                    "definition" : "resolvedFrom/BasicInfo/hasAttributes/site",
+                    "contents" : [
+                      "Performance/hasAttributes/site"
+                    ]
+                  },
+                  {
+                    "type" : "attributeDefinition",
+                    "name" : "product",
+                    "parent" : "Performance/attributeContext/Performance/extends/BasicInfo",
+                    "definition" : "resolvedFrom/BasicInfo/hasAttributes/product",
+                    "contents" : [
+                      "Performance/hasAttributes/product"
+                    ]
+                  },
+                  {
+                    "type" : "attributeDefinition",
+                    "name" : "reportingMonth",
+                    "parent" : "Performance/attributeContext/Performance/extends/BasicInfo",
+                    "definition" : "resolvedFrom/BasicInfo/hasAttributes/reportingMonth",
+                    "contents" : [
+                      "Performance/hasAttributes/reportingMonth"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "yieldRate",
+            "parent" : "Performance/attributeContext/Performance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/yieldRate",
+            "contents" : [
+              "Performance/hasAttributes/yieldRate"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "scrapRate",
+            "parent" : "Performance/attributeContext/Performance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/scrapRate",
+            "contents" : [
+              "Performance/hasAttributes/scrapRate"
+            ]
+          }
+        ]
+      },
+      "displayName" : "BasicInfo",
+      "description" : "This is a custom entity created for the sample.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "bg",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/extends/BasicInfo/bg",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "site",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/extends/BasicInfo/site",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "product",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/extends/BasicInfo/product",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "reportingMonth",
+          "appliedTraits" : [
+            "is.dataFormat.date",
+            "means.measurement.date"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/extends/BasicInfo/reportingMonth",
+          "dataFormat" : "Date"
+        },
+        {
+          "name" : "yieldRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/yieldRate",
+          "dataFormat" : "Float"
+        },
+        {
+          "name" : "scrapRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/scrapRate",
+          "dataFormat" : "Float"
+        }
+      ]
+    }
+  ]
+}

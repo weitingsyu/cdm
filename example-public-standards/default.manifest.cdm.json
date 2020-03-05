@@ -1,0 +1,38 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "cdm:/foundations.cdm.json"
+    }
+  ],
+  "manifestName" : "default",
+  "entities" : [
+    {
+      "type" : "LocalEntity",
+      "entityName" : "FinancialBasic",
+      "entityPath" : "resolved/FinancialBasic.cdm.json/FinancialBasic",
+      "dataPartitions" : [
+        {
+          "name" : "FinancialBasic-data-description",
+          "location" : "local:/FinancialBasic/partition-data.csv",
+          "exhibitsTraits" : [
+            {
+              "traitReference" : "is.partition.format.CSV",
+              "arguments" : [
+                {
+                  "name" : "columnHeaders",
+                  "value" : "true"
+                },
+                {
+                  "name" : "delimiter",
+                  "value" : ","
+                }
+              ]
+            }
+          ],
+          "arguments" : [ ]
+        }
+      ]
+    }
+  ]
+}

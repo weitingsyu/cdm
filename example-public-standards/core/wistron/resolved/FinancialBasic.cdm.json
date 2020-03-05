@@ -1,0 +1,120 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "/FinancialBasic.cdm.json",
+      "moniker" : "resolvedFrom"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "FinancialBasic",
+      "attributeContext" : {
+        "type" : "entity",
+        "name" : "FinancialBasic",
+        "definition" : "resolvedFrom/FinancialBasic",
+        "contents" : [
+          {
+            "type" : "attributeDefinition",
+            "name" : "bg",
+            "parent" : "FinancialBasic/attributeContext/FinancialBasic",
+            "definition" : "resolvedFrom/FinancialBasic/hasAttributes/bg",
+            "contents" : [
+              "FinancialBasic/hasAttributes/bg"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "site",
+            "parent" : "FinancialBasic/attributeContext/FinancialBasic",
+            "definition" : "resolvedFrom/FinancialBasic/hasAttributes/site",
+            "contents" : [
+              "FinancialBasic/hasAttributes/site"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "product",
+            "parent" : "FinancialBasic/attributeContext/FinancialBasic",
+            "definition" : "resolvedFrom/FinancialBasic/hasAttributes/product",
+            "contents" : [
+              "FinancialBasic/hasAttributes/product"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "type",
+            "parent" : "FinancialBasic/attributeContext/FinancialBasic",
+            "definition" : "resolvedFrom/FinancialBasic/hasAttributes/type",
+            "contents" : [
+              "FinancialBasic/hasAttributes/type"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "reportingMonth",
+            "parent" : "FinancialBasic/attributeContext/FinancialBasic",
+            "definition" : "resolvedFrom/FinancialBasic/hasAttributes/reportingMonth",
+            "contents" : [
+              "FinancialBasic/hasAttributes/reportingMonth"
+            ]
+          }
+        ]
+      },
+      "displayName" : "FinancialBasic",
+      "description" : "This is a financial basic entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "bg",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "FinancialBasic/attributeContext/FinancialBasic/bg",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "site",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "FinancialBasic/attributeContext/FinancialBasic/site",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "product",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "FinancialBasic/attributeContext/FinancialBasic/product",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "type",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "FinancialBasic/attributeContext/FinancialBasic/type",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "reportingMonth",
+          "appliedTraits" : [
+            "is.dataFormat.date",
+            "means.measurement.date"
+          ],
+          "attributeContext" : "FinancialBasic/attributeContext/FinancialBasic/reportingMonth",
+          "dataFormat" : "Date"
+        }
+      ]
+    }
+  ]
+}

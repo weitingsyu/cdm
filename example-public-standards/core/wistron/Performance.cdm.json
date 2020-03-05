@@ -1,0 +1,32 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "cdm:/foundations.cdm.json"
+    },
+    {
+      "corpusPath" : "cdm:/core/wistron/FinancialBasic.cdm.json"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "Performance",
+      "extendsEntity" : "FinancialBasic",
+      "displayName" : "Performance",
+      "description" : "This is a performance entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "yieldRate",
+          "purpose" : "hasA",
+          "dataType" : "float"
+        },
+        {
+          "name" : "scrapRate",
+          "purpose" : "hasA",
+          "dataType" : "float"
+        }
+      ]
+    }
+  ]
+}

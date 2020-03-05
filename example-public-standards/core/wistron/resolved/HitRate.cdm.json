@@ -1,0 +1,237 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "/HitRate.cdm.json",
+      "moniker" : "resolvedFrom"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "HitRate",
+      "attributeContext" : {
+        "type" : "entity",
+        "name" : "HitRate",
+        "definition" : "resolvedFrom/HitRate",
+        "contents" : [
+          {
+            "type" : "entityReferenceExtends",
+            "name" : "extends",
+            "parent" : "HitRate/attributeContext/HitRate",
+            "contents" : [
+              {
+                "type" : "entity",
+                "name" : "FinancialBasic",
+                "parent" : "HitRate/attributeContext/HitRate/extends",
+                "definition" : "resolvedFrom/FinancialBasic",
+                "contents" : [
+                  {
+                    "type" : "attributeDefinition",
+                    "name" : "bg",
+                    "parent" : "HitRate/attributeContext/HitRate/extends/FinancialBasic",
+                    "definition" : "resolvedFrom/FinancialBasic/hasAttributes/bg",
+                    "contents" : [
+                      "HitRate/hasAttributes/bg"
+                    ]
+                  },
+                  {
+                    "type" : "attributeDefinition",
+                    "name" : "site",
+                    "parent" : "HitRate/attributeContext/HitRate/extends/FinancialBasic",
+                    "definition" : "resolvedFrom/FinancialBasic/hasAttributes/site",
+                    "contents" : [
+                      "HitRate/hasAttributes/site"
+                    ]
+                  },
+                  {
+                    "type" : "attributeDefinition",
+                    "name" : "product",
+                    "parent" : "HitRate/attributeContext/HitRate/extends/FinancialBasic",
+                    "definition" : "resolvedFrom/FinancialBasic/hasAttributes/product",
+                    "contents" : [
+                      "HitRate/hasAttributes/product"
+                    ]
+                  },
+                  {
+                    "type" : "attributeDefinition",
+                    "name" : "type",
+                    "parent" : "HitRate/attributeContext/HitRate/extends/FinancialBasic",
+                    "definition" : "resolvedFrom/FinancialBasic/hasAttributes/type",
+                    "contents" : [
+                      "HitRate/hasAttributes/type"
+                    ]
+                  },
+                  {
+                    "type" : "attributeDefinition",
+                    "name" : "reportingMonth",
+                    "parent" : "HitRate/attributeContext/HitRate/extends/FinancialBasic",
+                    "definition" : "resolvedFrom/FinancialBasic/hasAttributes/reportingMonth",
+                    "contents" : [
+                      "HitRate/hasAttributes/reportingMonth"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "revenueHitRate",
+            "parent" : "HitRate/attributeContext/HitRate",
+            "definition" : "resolvedFrom/HitRate/hasAttributes/revenueHitRate",
+            "contents" : [
+              "HitRate/hasAttributes/revenueHitRate"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "operationIncomeHitRate",
+            "parent" : "HitRate/attributeContext/HitRate",
+            "definition" : "resolvedFrom/HitRate/hasAttributes/operationIncomeHitRate",
+            "contents" : [
+              "HitRate/hasAttributes/operationIncomeHitRate"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "mvaHitRate",
+            "parent" : "HitRate/attributeContext/HitRate",
+            "definition" : "resolvedFrom/HitRate/hasAttributes/mvaHitRate",
+            "contents" : [
+              "HitRate/hasAttributes/mvaHitRate"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "mohHitRate",
+            "parent" : "HitRate/attributeContext/HitRate",
+            "definition" : "resolvedFrom/HitRate/hasAttributes/mohHitRate",
+            "contents" : [
+              "HitRate/hasAttributes/mohHitRate"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "invoiceQtyHitRate",
+            "parent" : "HitRate/attributeContext/HitRate",
+            "definition" : "resolvedFrom/HitRate/hasAttributes/invoiceQtyHitRate",
+            "contents" : [
+              "HitRate/hasAttributes/invoiceQtyHitRate"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "productionQtyHitRate",
+            "parent" : "HitRate/attributeContext/HitRate",
+            "definition" : "resolvedFrom/HitRate/hasAttributes/productionQtyHitRate",
+            "contents" : [
+              "HitRate/hasAttributes/productionQtyHitRate"
+            ]
+          }
+        ]
+      },
+      "displayName" : "HitRate",
+      "description" : "This is a hit rate entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "bg",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "HitRate/attributeContext/HitRate/extends/FinancialBasic/bg",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "site",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "HitRate/attributeContext/HitRate/extends/FinancialBasic/site",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "product",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "HitRate/attributeContext/HitRate/extends/FinancialBasic/product",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "type",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "HitRate/attributeContext/HitRate/extends/FinancialBasic/type",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "reportingMonth",
+          "appliedTraits" : [
+            "is.dataFormat.date",
+            "means.measurement.date"
+          ],
+          "attributeContext" : "HitRate/attributeContext/HitRate/extends/FinancialBasic/reportingMonth",
+          "dataFormat" : "Date"
+        },
+        {
+          "name" : "revenueHitRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "HitRate/attributeContext/HitRate/revenueHitRate",
+          "dataFormat" : "Float"
+        },
+        {
+          "name" : "operationIncomeHitRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "HitRate/attributeContext/HitRate/operationIncomeHitRate",
+          "dataFormat" : "Float"
+        },
+        {
+          "name" : "mvaHitRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "HitRate/attributeContext/HitRate/mvaHitRate",
+          "dataFormat" : "Float"
+        },
+        {
+          "name" : "mohHitRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "HitRate/attributeContext/HitRate/mohHitRate",
+          "dataFormat" : "Float"
+        },
+        {
+          "name" : "invoiceQtyHitRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "HitRate/attributeContext/HitRate/invoiceQtyHitRate",
+          "dataFormat" : "Float"
+        },
+        {
+          "name" : "productionQtyHitRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "HitRate/attributeContext/HitRate/productionQtyHitRate",
+          "dataFormat" : "Float"
+        }
+      ]
+    }
+  ]
+}
