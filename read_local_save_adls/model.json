@@ -105,7 +105,7 @@
             "name": "Sample Partition",
             "isHidden": true,
             "refreshTime": "2018-11-14T19:37:55.4375154+00:00",
-            "location": "https://ssotstorage.dfs.core.windows.net/powerbi/Customers/partition-data.csv",
+            "location": "https://jasonstorage3.dfs.core.windows.net/powerbi/Customers/partition-data.csv",
             "fileFormatSettings": {
               "$type": "CsvFormatSettings",
               "columnHeaders": true,
