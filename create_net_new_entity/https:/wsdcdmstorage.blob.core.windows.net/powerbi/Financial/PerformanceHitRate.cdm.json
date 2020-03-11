@@ -10,29 +10,29 @@
   ],
   "definitions" : [
     {
-      "entityName" : "Performance",
+      "entityName" : "PerformanceHitRate",
       "extendsEntity" : "FinancialBasic",
-      "displayName" : "Performance",
-      "description" : "This is a Performance entity.",
+      "displayName" : "PerformanceHitRate",
+      "description" : "This is a PerformanceHitRate entity.",
       "version" : "0.0.1",
       "hasAttributes" : [
         {
-          "name" : "ads",
+          "name" : "adsHitRate",
           "purpose" : "hasA",
           "dataType" : "float",
-          "description" : "產品庫存量(天數)"
+          "description" : "庫存指標達成率"
         },
         {
-          "name" : "yieldRate",
+          "name" : "yieldRateHitRate",
           "purpose" : "hasA",
           "dataType" : "float",
-          "description" : "生產良率"
+          "description" : "良率指標達成率"
         },
         {
-          "name" : "scrapRate",
+          "name" : "scrapRateHitRate",
           "purpose" : "hasA",
           "dataType" : "float",
-          "description" : "生產報廢率"
+          "description" : "報廢指標達成率"
         }
       ]
     }

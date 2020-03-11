@@ -69,6 +69,7 @@ public class Program {
     // Load a model.json file from local FS.
     final CdmManifestDefinition manifest =
         cdmCorpus.<CdmManifestDefinition>fetchObjectAsync("local:/model.json").get();
+        
 
     // ---------------------------------------------------------------------------------------------
     // Explore entities and partitions defined in the model

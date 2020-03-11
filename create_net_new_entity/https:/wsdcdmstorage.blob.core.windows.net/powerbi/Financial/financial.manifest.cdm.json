@@ -14,7 +14,7 @@
       "dataPartitions" : [
         {
           "name" : "FinancialBasic-data-description",
-          "location" : "adls:/FinancialBasic/partition-data.csv",
+          "location" : "local:/FinancialBasic/dddpartition-data.csv",
           "exhibitsTraits" : [
             {
               "traitReference" : "is.partition.format.CSV",
@@ -41,7 +41,7 @@
       "dataPartitions" : [
         {
           "name" : "IncomeStatment-data-description",
-          "location" : "adls:/IncomeStatment/partition-data.csv",
+          "location" : "local:/IncomeStatment/dddpartition-data.csv",
           "exhibitsTraits" : [
             {
               "traitReference" : "is.partition.format.CSV",
@@ -68,7 +68,7 @@
       "dataPartitions" : [
         {
           "name" : "RevenueRatio-data-description",
-          "location" : "adls:/RevenueRatio/partition-data.csv",
+          "location" : "local:/RevenueRatio/dddpartition-data.csv",
           "exhibitsTraits" : [
             {
               "traitReference" : "is.partition.format.CSV",
@@ -95,7 +95,7 @@
       "dataPartitions" : [
         {
           "name" : "Gap-data-description",
-          "location" : "adls:/Gap/partition-data.csv",
+          "location" : "local:/Gap/dddpartition-data.csv",
           "exhibitsTraits" : [
             {
               "traitReference" : "is.partition.format.CSV",
@@ -122,7 +122,7 @@
       "dataPartitions" : [
         {
           "name" : "IncomeStatementHitRate-data-description",
-          "location" : "adls:/IncomeStatementHitRate/partition-data.csv",
+          "location" : "local:/IncomeStatementHitRate/dddpartition-data.csv",
           "exhibitsTraits" : [
             {
               "traitReference" : "is.partition.format.CSV",
@@ -149,7 +149,7 @@
       "dataPartitions" : [
         {
           "name" : "Performance-data-description",
-          "location" : "adls:/Performance/partition-data.csv",
+          "location" : "local:/Performance/dddpartition-data.csv",
           "exhibitsTraits" : [
             {
               "traitReference" : "is.partition.format.CSV",
@@ -176,7 +176,7 @@
       "dataPartitions" : [
         {
           "name" : "PerformanceHitRate-data-description",
-          "location" : "adls:/PerformanceHitRate/partition-data.csv",
+          "location" : "local:/PerformanceHitRate/dddpartition-data.csv",
           "exhibitsTraits" : [
             {
               "traitReference" : "is.partition.format.CSV",

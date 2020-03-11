@@ -1,0 +1,147 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "/IncomeStatementHitRate.cdm.json",
+      "moniker" : "resolvedFrom"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "IncomeStatementHitRate",
+      "attributeContext" : {
+        "type" : "entity",
+        "name" : "IncomeStatementHitRate",
+        "definition" : "resolvedFrom/IncomeStatementHitRate",
+        "contents" : [
+          {
+            "type" : "entityReferenceExtends",
+            "name" : "extends",
+            "parent" : "IncomeStatementHitRate/attributeContext/IncomeStatementHitRate",
+            "contents" : [
+              {
+                "type" : "entity",
+                "name" : "FinancialBasic",
+                "parent" : "IncomeStatementHitRate/attributeContext/IncomeStatementHitRate/extends",
+                "definition" : "resolvedFrom/FinancialBasic"
+              }
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "revenueHitRate",
+            "parent" : "IncomeStatementHitRate/attributeContext/IncomeStatementHitRate",
+            "definition" : "resolvedFrom/IncomeStatementHitRate/hasAttributes/revenueHitRate",
+            "contents" : [
+              "IncomeStatementHitRate/hasAttributes/revenueHitRate"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "operationIncomeHitRate",
+            "parent" : "IncomeStatementHitRate/attributeContext/IncomeStatementHitRate",
+            "definition" : "resolvedFrom/IncomeStatementHitRate/hasAttributes/operationIncomeHitRate",
+            "contents" : [
+              "IncomeStatementHitRate/hasAttributes/operationIncomeHitRate"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "mvaHitRate",
+            "parent" : "IncomeStatementHitRate/attributeContext/IncomeStatementHitRate",
+            "definition" : "resolvedFrom/IncomeStatementHitRate/hasAttributes/mvaHitRate",
+            "contents" : [
+              "IncomeStatementHitRate/hasAttributes/mvaHitRate"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "mohHitRate",
+            "parent" : "IncomeStatementHitRate/attributeContext/IncomeStatementHitRate",
+            "definition" : "resolvedFrom/IncomeStatementHitRate/hasAttributes/mohHitRate",
+            "contents" : [
+              "IncomeStatementHitRate/hasAttributes/mohHitRate"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "invoiceQtyHitRate",
+            "parent" : "IncomeStatementHitRate/attributeContext/IncomeStatementHitRate",
+            "definition" : "resolvedFrom/IncomeStatementHitRate/hasAttributes/invoiceQtyHitRate",
+            "contents" : [
+              "IncomeStatementHitRate/hasAttributes/invoiceQtyHitRate"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "productionQtyHitRate",
+            "parent" : "IncomeStatementHitRate/attributeContext/IncomeStatementHitRate",
+            "definition" : "resolvedFrom/IncomeStatementHitRate/hasAttributes/productionQtyHitRate",
+            "contents" : [
+              "IncomeStatementHitRate/hasAttributes/productionQtyHitRate"
+            ]
+          }
+        ]
+      },
+      "displayName" : "IncomeStatementHitRate",
+      "description" : "This is a IncomeStatementHitRate entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "revenueHitRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "IncomeStatementHitRate/attributeContext/IncomeStatementHitRate/revenueHitRate",
+          "dataFormat" : "Float",
+          "description" : "營收達成率 (對比年度預估值) or 營收達成率 (對比滾動預估值)"
+        },
+        {
+          "name" : "operationIncomeHitRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "IncomeStatementHitRate/attributeContext/IncomeStatementHitRate/operationIncomeHitRate",
+          "dataFormat" : "Float",
+          "description" : "營收達成率 (對比年度預估值) or 營收達成率 (對比滾動預估值)"
+        },
+        {
+          "name" : "mvaHitRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "IncomeStatementHitRate/attributeContext/IncomeStatementHitRate/mvaHitRate",
+          "dataFormat" : "Float",
+          "description" : "營收達成率 (對比年度預估值) or 營收達成率 (對比滾動預估值)"
+        },
+        {
+          "name" : "mohHitRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "IncomeStatementHitRate/attributeContext/IncomeStatementHitRate/mohHitRate",
+          "dataFormat" : "Float",
+          "description" : "營收達成率 (對比年度預估值) or 營收達成率 (對比滾動預估值)"
+        },
+        {
+          "name" : "invoiceQtyHitRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "IncomeStatementHitRate/attributeContext/IncomeStatementHitRate/invoiceQtyHitRate",
+          "dataFormat" : "Float",
+          "description" : "營收達成率 (對比年度預估值) or 營收達成率 (對比滾動預估值)"
+        },
+        {
+          "name" : "productionQtyHitRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "IncomeStatementHitRate/attributeContext/IncomeStatementHitRate/productionQtyHitRate",
+          "dataFormat" : "Float",
+          "description" : "營收達成率 (對比年度預估值) or 營收達成率 (對比滾動預估值)"
+        }
+      ]
+    }
+  ]
+}

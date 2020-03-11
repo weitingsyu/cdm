@@ -4,13 +4,6 @@
     {
       "type" : "local",
       "config" : {
-        "root" : ".././example-public-standards/core/wistron"
-      },
-      "namespace" : "local"
-    },
-    {
-      "type" : "local",
-      "config" : {
         "root" : ".././example-public-standards"
       },
       "namespace" : "cdm"
@@ -18,10 +11,10 @@
     {
       "type" : "adls",
       "config" : {
-        "hostname" : "wsdcdmstorage.dfs.core.windows.net",
-        "root" : "/powerbi/Financial",
-        "tenant" : "69a44e1e-8420-46e1-b62c-888963ec4c3b",
-        "clientId" : "b3b6e653-8e60-4d71-8690-e573c3c5863b",
+        "hostname" : "ssotstorage.dfs.core.windows.net",
+        "root" : "/powerbi",
+        "tenant" : "ad8dc70a-f3e0-46b6-8d5a-f855e329dbde",
+        "clientId" : "5da00db2-335a-4873-816c-9b6314d453c6",
         "timeout" : 5000,
         "maximumTimeout" : 20000,
         "numberOfRetries" : 2

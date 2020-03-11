@@ -1,0 +1,52 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "cdm:/foundations.cdm.json"
+    },
+    {
+      "corpusPath" : "cdm:/core/wistron/FinancialBasic.cdm.json"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "Gap",
+      "extendsEntity" : "FinancialBasic",
+      "displayName" : "Gap",
+      "description" : "This is a Gap entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "operationIncomeGap",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "落差值 (對比年度預估值) or 落差值 (對比滾動預估值)"
+        },
+        {
+          "name" : "mohGap",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "落差值 (對比年度預估值) or 落差值 (對比滾動預估值) "
+        },
+        {
+          "name" : "metrialCostGap",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "落差值 (對比年度預估值) or 落差值 (對比滾動預估值) "
+        },
+        {
+          "name" : "otherGostGap",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "落差值 (對比年度預估值) or 落差值 (對比滾動預估值) "
+        },
+        {
+          "name" : "opexGap",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "落差值 (對比年度預估值) or 落差值 (對比滾動預估值) "
+        }
+      ]
+    }
+  ]
+}

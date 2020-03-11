@@ -2,72 +2,72 @@
   "jsonSchemaSemanticVersion" : "0.9.0",
   "imports" : [
     {
-      "corpusPath" : "/Performance.cdm.json",
+      "corpusPath" : "/PerformanceHitRate.cdm.json",
       "moniker" : "resolvedFrom"
     }
   ],
   "definitions" : [
     {
-      "entityName" : "Performance",
+      "entityName" : "PerformanceHitRate",
       "attributeContext" : {
         "type" : "entity",
-        "name" : "Performance",
-        "definition" : "resolvedFrom/Performance",
+        "name" : "PerformanceHitRate",
+        "definition" : "resolvedFrom/PerformanceHitRate",
         "contents" : [
           {
             "type" : "entityReferenceExtends",
             "name" : "extends",
-            "parent" : "Performance/attributeContext/Performance",
+            "parent" : "PerformanceHitRate/attributeContext/PerformanceHitRate",
             "contents" : [
               {
                 "type" : "entity",
                 "name" : "FinancialBasic",
-                "parent" : "Performance/attributeContext/Performance/extends",
+                "parent" : "PerformanceHitRate/attributeContext/PerformanceHitRate/extends",
                 "definition" : "resolvedFrom/FinancialBasic",
                 "contents" : [
                   {
                     "type" : "attributeDefinition",
                     "name" : "bg",
-                    "parent" : "Performance/attributeContext/Performance/extends/FinancialBasic",
+                    "parent" : "PerformanceHitRate/attributeContext/PerformanceHitRate/extends/FinancialBasic",
                     "definition" : "resolvedFrom/FinancialBasic/hasAttributes/bg",
                     "contents" : [
-                      "Performance/hasAttributes/bg"
+                      "PerformanceHitRate/hasAttributes/bg"
                     ]
                   },
                   {
                     "type" : "attributeDefinition",
                     "name" : "site",
-                    "parent" : "Performance/attributeContext/Performance/extends/FinancialBasic",
+                    "parent" : "PerformanceHitRate/attributeContext/PerformanceHitRate/extends/FinancialBasic",
                     "definition" : "resolvedFrom/FinancialBasic/hasAttributes/site",
                     "contents" : [
-                      "Performance/hasAttributes/site"
+                      "PerformanceHitRate/hasAttributes/site"
                     ]
                   },
                   {
                     "type" : "attributeDefinition",
                     "name" : "product",
-                    "parent" : "Performance/attributeContext/Performance/extends/FinancialBasic",
+                    "parent" : "PerformanceHitRate/attributeContext/PerformanceHitRate/extends/FinancialBasic",
                     "definition" : "resolvedFrom/FinancialBasic/hasAttributes/product",
                     "contents" : [
-                      "Performance/hasAttributes/product"
+                      "PerformanceHitRate/hasAttributes/product"
                     ]
                   },
                   {
                     "type" : "attributeDefinition",
                     "name" : "type",
-                    "parent" : "Performance/attributeContext/Performance/extends/FinancialBasic",
+                    "parent" : "PerformanceHitRate/attributeContext/PerformanceHitRate/extends/FinancialBasic",
                     "definition" : "resolvedFrom/FinancialBasic/hasAttributes/type",
                     "contents" : [
-                      "Performance/hasAttributes/type"
+                      "PerformanceHitRate/hasAttributes/type"
                     ]
                   },
                   {
                     "type" : "attributeDefinition",
                     "name" : "reportingMonth",
-                    "parent" : "Performance/attributeContext/Performance/extends/FinancialBasic",
+                    "parent" : "PerformanceHitRate/attributeContext/PerformanceHitRate/extends/FinancialBasic",
                     "definition" : "resolvedFrom/FinancialBasic/hasAttributes/reportingMonth",
                     "contents" : [
-                      "Performance/hasAttributes/reportingMonth"
+                      "PerformanceHitRate/hasAttributes/reportingMonth"
                     ]
                   }
                 ]
@@ -76,35 +76,35 @@
           },
           {
             "type" : "attributeDefinition",
-            "name" : "ads",
-            "parent" : "Performance/attributeContext/Performance",
-            "definition" : "resolvedFrom/Performance/hasAttributes/ads",
+            "name" : "adsHitRate",
+            "parent" : "PerformanceHitRate/attributeContext/PerformanceHitRate",
+            "definition" : "resolvedFrom/PerformanceHitRate/hasAttributes/adsHitRate",
             "contents" : [
-              "Performance/hasAttributes/ads"
+              "PerformanceHitRate/hasAttributes/adsHitRate"
             ]
           },
           {
             "type" : "attributeDefinition",
-            "name" : "yieldRate",
-            "parent" : "Performance/attributeContext/Performance",
-            "definition" : "resolvedFrom/Performance/hasAttributes/yieldRate",
+            "name" : "yieldRateHitRate",
+            "parent" : "PerformanceHitRate/attributeContext/PerformanceHitRate",
+            "definition" : "resolvedFrom/PerformanceHitRate/hasAttributes/yieldRateHitRate",
             "contents" : [
-              "Performance/hasAttributes/yieldRate"
+              "PerformanceHitRate/hasAttributes/yieldRateHitRate"
             ]
           },
           {
             "type" : "attributeDefinition",
-            "name" : "scrapRate",
-            "parent" : "Performance/attributeContext/Performance",
-            "definition" : "resolvedFrom/Performance/hasAttributes/scrapRate",
+            "name" : "scrapRateHitRate",
+            "parent" : "PerformanceHitRate/attributeContext/PerformanceHitRate",
+            "definition" : "resolvedFrom/PerformanceHitRate/hasAttributes/scrapRateHitRate",
             "contents" : [
-              "Performance/hasAttributes/scrapRate"
+              "PerformanceHitRate/hasAttributes/scrapRateHitRate"
             ]
           }
         ]
       },
-      "displayName" : "Performance",
-      "description" : "This is a Performance entity.",
+      "displayName" : "PerformanceHitRate",
+      "description" : "This is a PerformanceHitRate entity.",
       "version" : "0.0.1",
       "hasAttributes" : [
         {
@@ -114,7 +114,7 @@
             "is.dataFormat.big",
             "is.dataFormat.array"
           ],
-          "attributeContext" : "Performance/attributeContext/Performance/extends/FinancialBasic/bg",
+          "attributeContext" : "PerformanceHitRate/attributeContext/PerformanceHitRate/extends/FinancialBasic/bg",
           "dataFormat" : "String"
         },
         {
@@ -124,7 +124,7 @@
             "is.dataFormat.big",
             "is.dataFormat.array"
           ],
-          "attributeContext" : "Performance/attributeContext/Performance/extends/FinancialBasic/site",
+          "attributeContext" : "PerformanceHitRate/attributeContext/PerformanceHitRate/extends/FinancialBasic/site",
           "dataFormat" : "String"
         },
         {
@@ -134,7 +134,7 @@
             "is.dataFormat.big",
             "is.dataFormat.array"
           ],
-          "attributeContext" : "Performance/attributeContext/Performance/extends/FinancialBasic/product",
+          "attributeContext" : "PerformanceHitRate/attributeContext/PerformanceHitRate/extends/FinancialBasic/product",
           "dataFormat" : "String"
         },
         {
@@ -144,7 +144,7 @@
             "is.dataFormat.big",
             "is.dataFormat.array"
           ],
-          "attributeContext" : "Performance/attributeContext/Performance/extends/FinancialBasic/type",
+          "attributeContext" : "PerformanceHitRate/attributeContext/PerformanceHitRate/extends/FinancialBasic/type",
           "dataFormat" : "String"
         },
         {
@@ -153,35 +153,35 @@
             "is.dataFormat.date",
             "means.measurement.date"
           ],
-          "attributeContext" : "Performance/attributeContext/Performance/extends/FinancialBasic/reportingMonth",
+          "attributeContext" : "PerformanceHitRate/attributeContext/PerformanceHitRate/extends/FinancialBasic/reportingMonth",
           "dataFormat" : "Date"
         },
         {
-          "name" : "ads",
+          "name" : "adsHitRate",
           "appliedTraits" : [
             "is.dataFormat.floatingPoint"
           ],
-          "attributeContext" : "Performance/attributeContext/Performance/ads",
+          "attributeContext" : "PerformanceHitRate/attributeContext/PerformanceHitRate/adsHitRate",
           "dataFormat" : "Float",
-          "description" : "產品庫存量(天數)"
+          "description" : "庫存指標達成率"
         },
         {
-          "name" : "yieldRate",
+          "name" : "yieldRateHitRate",
           "appliedTraits" : [
             "is.dataFormat.floatingPoint"
           ],
-          "attributeContext" : "Performance/attributeContext/Performance/yieldRate",
+          "attributeContext" : "PerformanceHitRate/attributeContext/PerformanceHitRate/yieldRateHitRate",
           "dataFormat" : "Float",
-          "description" : "生產良率"
+          "description" : "良率指標達成率"
         },
         {
-          "name" : "scrapRate",
+          "name" : "scrapRateHitRate",
           "appliedTraits" : [
             "is.dataFormat.floatingPoint"
           ],
-          "attributeContext" : "Performance/attributeContext/Performance/scrapRate",
+          "attributeContext" : "PerformanceHitRate/attributeContext/PerformanceHitRate/scrapRateHitRate",
           "dataFormat" : "Float",
-          "description" : "生產報廢率"
+          "description" : "報廢指標達成率"
         }
       ]
     }

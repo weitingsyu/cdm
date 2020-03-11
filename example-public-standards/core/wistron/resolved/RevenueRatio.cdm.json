@@ -1,0 +1,134 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "/RevenueRatio.cdm.json",
+      "moniker" : "resolvedFrom"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "RevenueRatio",
+      "attributeContext" : {
+        "type" : "entity",
+        "name" : "RevenueRatio",
+        "definition" : "resolvedFrom/RevenueRatio",
+        "contents" : [
+          {
+            "type" : "attributeDefinition",
+            "name" : "operationIncomeRatio",
+            "parent" : "RevenueRatio/attributeContext/RevenueRatio",
+            "definition" : "resolvedFrom/RevenueRatio/hasAttributes/operationIncomeRatio",
+            "contents" : [
+              "RevenueRatio/hasAttributes/operationIncomeRatio"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "mohRatio",
+            "parent" : "RevenueRatio/attributeContext/RevenueRatio",
+            "definition" : "resolvedFrom/RevenueRatio/hasAttributes/mohRatio",
+            "contents" : [
+              "RevenueRatio/hasAttributes/mohRatio"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "materialCostRatio",
+            "parent" : "RevenueRatio/attributeContext/RevenueRatio",
+            "definition" : "resolvedFrom/RevenueRatio/hasAttributes/materialCostRatio",
+            "contents" : [
+              "RevenueRatio/hasAttributes/materialCostRatio"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "otherCostRatio",
+            "parent" : "RevenueRatio/attributeContext/RevenueRatio",
+            "definition" : "resolvedFrom/RevenueRatio/hasAttributes/otherCostRatio",
+            "contents" : [
+              "RevenueRatio/hasAttributes/otherCostRatio"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "opexRatio",
+            "parent" : "RevenueRatio/attributeContext/RevenueRatio",
+            "definition" : "resolvedFrom/RevenueRatio/hasAttributes/opexRatio",
+            "contents" : [
+              "RevenueRatio/hasAttributes/opexRatio"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "grossMarginRatio",
+            "parent" : "RevenueRatio/attributeContext/RevenueRatio",
+            "definition" : "resolvedFrom/RevenueRatio/hasAttributes/grossMarginRatio",
+            "contents" : [
+              "RevenueRatio/hasAttributes/grossMarginRatio"
+            ]
+          }
+        ]
+      },
+      "displayName" : "RevenueRatio",
+      "description" : "This is a RevenueRatio entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "operationIncomeRatio",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "RevenueRatio/attributeContext/RevenueRatio/operationIncomeRatio",
+          "dataFormat" : "Float",
+          "description" : "單月營業利潤佔營收比率"
+        },
+        {
+          "name" : "mohRatio",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "RevenueRatio/attributeContext/RevenueRatio/mohRatio",
+          "dataFormat" : "Float",
+          "description" : "單月生產成本佔營收比率"
+        },
+        {
+          "name" : "materialCostRatio",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "RevenueRatio/attributeContext/RevenueRatio/materialCostRatio",
+          "dataFormat" : "Float",
+          "description" : "單月材料成本佔營收比率"
+        },
+        {
+          "name" : "otherCostRatio",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "RevenueRatio/attributeContext/RevenueRatio/otherCostRatio",
+          "dataFormat" : "Float",
+          "description" : "單月其他成本佔營收比率"
+        },
+        {
+          "name" : "opexRatio",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "RevenueRatio/attributeContext/RevenueRatio/opexRatio",
+          "dataFormat" : "Float",
+          "description" : "單月管銷費用佔營收比率"
+        },
+        {
+          "name" : "grossMarginRatio",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "RevenueRatio/attributeContext/RevenueRatio/grossMarginRatio",
+          "dataFormat" : "Float",
+          "description" : "單月毛利率"
+        }
+      ]
+    }
+  ]
+}

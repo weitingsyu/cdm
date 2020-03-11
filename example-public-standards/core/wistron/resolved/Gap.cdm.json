@@ -2,72 +2,72 @@
   "jsonSchemaSemanticVersion" : "0.9.0",
   "imports" : [
     {
-      "corpusPath" : "/HitRate.cdm.json",
+      "corpusPath" : "/Gap.cdm.json",
       "moniker" : "resolvedFrom"
     }
   ],
   "definitions" : [
     {
-      "entityName" : "HitRate",
+      "entityName" : "Gap",
       "attributeContext" : {
         "type" : "entity",
-        "name" : "HitRate",
-        "definition" : "resolvedFrom/HitRate",
+        "name" : "Gap",
+        "definition" : "resolvedFrom/Gap",
         "contents" : [
           {
             "type" : "entityReferenceExtends",
             "name" : "extends",
-            "parent" : "HitRate/attributeContext/HitRate",
+            "parent" : "Gap/attributeContext/Gap",
             "contents" : [
               {
                 "type" : "entity",
                 "name" : "FinancialBasic",
-                "parent" : "HitRate/attributeContext/HitRate/extends",
+                "parent" : "Gap/attributeContext/Gap/extends",
                 "definition" : "resolvedFrom/FinancialBasic",
                 "contents" : [
                   {
                     "type" : "attributeDefinition",
                     "name" : "bg",
-                    "parent" : "HitRate/attributeContext/HitRate/extends/FinancialBasic",
+                    "parent" : "Gap/attributeContext/Gap/extends/FinancialBasic",
                     "definition" : "resolvedFrom/FinancialBasic/hasAttributes/bg",
                     "contents" : [
-                      "HitRate/hasAttributes/bg"
+                      "Gap/hasAttributes/bg"
                     ]
                   },
                   {
                     "type" : "attributeDefinition",
                     "name" : "site",
-                    "parent" : "HitRate/attributeContext/HitRate/extends/FinancialBasic",
+                    "parent" : "Gap/attributeContext/Gap/extends/FinancialBasic",
                     "definition" : "resolvedFrom/FinancialBasic/hasAttributes/site",
                     "contents" : [
-                      "HitRate/hasAttributes/site"
+                      "Gap/hasAttributes/site"
                     ]
                   },
                   {
                     "type" : "attributeDefinition",
                     "name" : "product",
-                    "parent" : "HitRate/attributeContext/HitRate/extends/FinancialBasic",
+                    "parent" : "Gap/attributeContext/Gap/extends/FinancialBasic",
                     "definition" : "resolvedFrom/FinancialBasic/hasAttributes/product",
                     "contents" : [
-                      "HitRate/hasAttributes/product"
+                      "Gap/hasAttributes/product"
                     ]
                   },
                   {
                     "type" : "attributeDefinition",
                     "name" : "type",
-                    "parent" : "HitRate/attributeContext/HitRate/extends/FinancialBasic",
+                    "parent" : "Gap/attributeContext/Gap/extends/FinancialBasic",
                     "definition" : "resolvedFrom/FinancialBasic/hasAttributes/type",
                     "contents" : [
-                      "HitRate/hasAttributes/type"
+                      "Gap/hasAttributes/type"
                     ]
                   },
                   {
                     "type" : "attributeDefinition",
                     "name" : "reportingMonth",
-                    "parent" : "HitRate/attributeContext/HitRate/extends/FinancialBasic",
+                    "parent" : "Gap/attributeContext/Gap/extends/FinancialBasic",
                     "definition" : "resolvedFrom/FinancialBasic/hasAttributes/reportingMonth",
                     "contents" : [
-                      "HitRate/hasAttributes/reportingMonth"
+                      "Gap/hasAttributes/reportingMonth"
                     ]
                   }
                 ]
@@ -76,62 +76,53 @@
           },
           {
             "type" : "attributeDefinition",
-            "name" : "revenueHitRate",
-            "parent" : "HitRate/attributeContext/HitRate",
-            "definition" : "resolvedFrom/HitRate/hasAttributes/revenueHitRate",
+            "name" : "operationIncomeGap",
+            "parent" : "Gap/attributeContext/Gap",
+            "definition" : "resolvedFrom/Gap/hasAttributes/operationIncomeGap",
             "contents" : [
-              "HitRate/hasAttributes/revenueHitRate"
+              "Gap/hasAttributes/operationIncomeGap"
             ]
           },
           {
             "type" : "attributeDefinition",
-            "name" : "operationIncomeHitRate",
-            "parent" : "HitRate/attributeContext/HitRate",
-            "definition" : "resolvedFrom/HitRate/hasAttributes/operationIncomeHitRate",
+            "name" : "mohGap",
+            "parent" : "Gap/attributeContext/Gap",
+            "definition" : "resolvedFrom/Gap/hasAttributes/mohGap",
             "contents" : [
-              "HitRate/hasAttributes/operationIncomeHitRate"
+              "Gap/hasAttributes/mohGap"
             ]
           },
           {
             "type" : "attributeDefinition",
-            "name" : "mvaHitRate",
-            "parent" : "HitRate/attributeContext/HitRate",
-            "definition" : "resolvedFrom/HitRate/hasAttributes/mvaHitRate",
+            "name" : "metrialCostGap",
+            "parent" : "Gap/attributeContext/Gap",
+            "definition" : "resolvedFrom/Gap/hasAttributes/metrialCostGap",
             "contents" : [
-              "HitRate/hasAttributes/mvaHitRate"
+              "Gap/hasAttributes/metrialCostGap"
             ]
           },
           {
             "type" : "attributeDefinition",
-            "name" : "mohHitRate",
-            "parent" : "HitRate/attributeContext/HitRate",
-            "definition" : "resolvedFrom/HitRate/hasAttributes/mohHitRate",
+            "name" : "otherGostGap",
+            "parent" : "Gap/attributeContext/Gap",
+            "definition" : "resolvedFrom/Gap/hasAttributes/otherGostGap",
             "contents" : [
-              "HitRate/hasAttributes/mohHitRate"
+              "Gap/hasAttributes/otherGostGap"
             ]
           },
           {
             "type" : "attributeDefinition",
-            "name" : "invoiceQtyHitRate",
-            "parent" : "HitRate/attributeContext/HitRate",
-            "definition" : "resolvedFrom/HitRate/hasAttributes/invoiceQtyHitRate",
+            "name" : "opexGap",
+            "parent" : "Gap/attributeContext/Gap",
+            "definition" : "resolvedFrom/Gap/hasAttributes/opexGap",
             "contents" : [
-              "HitRate/hasAttributes/invoiceQtyHitRate"
-            ]
-          },
-          {
-            "type" : "attributeDefinition",
-            "name" : "productionQtyHitRate",
-            "parent" : "HitRate/attributeContext/HitRate",
-            "definition" : "resolvedFrom/HitRate/hasAttributes/productionQtyHitRate",
-            "contents" : [
-              "HitRate/hasAttributes/productionQtyHitRate"
+              "Gap/hasAttributes/opexGap"
             ]
           }
         ]
       },
-      "displayName" : "HitRate",
-      "description" : "This is a hit rate entity.",
+      "displayName" : "Gap",
+      "description" : "This is a Gap entity.",
       "version" : "0.0.1",
       "hasAttributes" : [
         {
@@ -141,7 +132,7 @@
             "is.dataFormat.big",
             "is.dataFormat.array"
           ],
-          "attributeContext" : "HitRate/attributeContext/HitRate/extends/FinancialBasic/bg",
+          "attributeContext" : "Gap/attributeContext/Gap/extends/FinancialBasic/bg",
           "dataFormat" : "String"
         },
         {
@@ -151,7 +142,7 @@
             "is.dataFormat.big",
             "is.dataFormat.array"
           ],
-          "attributeContext" : "HitRate/attributeContext/HitRate/extends/FinancialBasic/site",
+          "attributeContext" : "Gap/attributeContext/Gap/extends/FinancialBasic/site",
           "dataFormat" : "String"
         },
         {
@@ -161,7 +152,7 @@
             "is.dataFormat.big",
             "is.dataFormat.array"
           ],
-          "attributeContext" : "HitRate/attributeContext/HitRate/extends/FinancialBasic/product",
+          "attributeContext" : "Gap/attributeContext/Gap/extends/FinancialBasic/product",
           "dataFormat" : "String"
         },
         {
@@ -171,7 +162,7 @@
             "is.dataFormat.big",
             "is.dataFormat.array"
           ],
-          "attributeContext" : "HitRate/attributeContext/HitRate/extends/FinancialBasic/type",
+          "attributeContext" : "Gap/attributeContext/Gap/extends/FinancialBasic/type",
           "dataFormat" : "String"
         },
         {
@@ -180,56 +171,53 @@
             "is.dataFormat.date",
             "means.measurement.date"
           ],
-          "attributeContext" : "HitRate/attributeContext/HitRate/extends/FinancialBasic/reportingMonth",
+          "attributeContext" : "Gap/attributeContext/Gap/extends/FinancialBasic/reportingMonth",
           "dataFormat" : "Date"
         },
         {
-          "name" : "revenueHitRate",
+          "name" : "operationIncomeGap",
           "appliedTraits" : [
             "is.dataFormat.floatingPoint"
           ],
-          "attributeContext" : "HitRate/attributeContext/HitRate/revenueHitRate",
-          "dataFormat" : "Float"
+          "attributeContext" : "Gap/attributeContext/Gap/operationIncomeGap",
+          "dataFormat" : "Float",
+          "description" : "落差值 (對比年度預估值) or 落差值 (對比滾動預估值)"
         },
         {
-          "name" : "operationIncomeHitRate",
+          "name" : "mohGap",
           "appliedTraits" : [
             "is.dataFormat.floatingPoint"
           ],
-          "attributeContext" : "HitRate/attributeContext/HitRate/operationIncomeHitRate",
-          "dataFormat" : "Float"
+          "attributeContext" : "Gap/attributeContext/Gap/mohGap",
+          "dataFormat" : "Float",
+          "description" : "落差值 (對比年度預估值) or 落差值 (對比滾動預估值) "
         },
         {
-          "name" : "mvaHitRate",
+          "name" : "metrialCostGap",
           "appliedTraits" : [
             "is.dataFormat.floatingPoint"
           ],
-          "attributeContext" : "HitRate/attributeContext/HitRate/mvaHitRate",
-          "dataFormat" : "Float"
+          "attributeContext" : "Gap/attributeContext/Gap/metrialCostGap",
+          "dataFormat" : "Float",
+          "description" : "落差值 (對比年度預估值) or 落差值 (對比滾動預估值) "
         },
         {
-          "name" : "mohHitRate",
+          "name" : "otherGostGap",
           "appliedTraits" : [
             "is.dataFormat.floatingPoint"
           ],
-          "attributeContext" : "HitRate/attributeContext/HitRate/mohHitRate",
-          "dataFormat" : "Float"
+          "attributeContext" : "Gap/attributeContext/Gap/otherGostGap",
+          "dataFormat" : "Float",
+          "description" : "落差值 (對比年度預估值) or 落差值 (對比滾動預估值) "
         },
         {
-          "name" : "invoiceQtyHitRate",
+          "name" : "opexGap",
           "appliedTraits" : [
             "is.dataFormat.floatingPoint"
           ],
-          "attributeContext" : "HitRate/attributeContext/HitRate/invoiceQtyHitRate",
-          "dataFormat" : "Float"
-        },
-        {
-          "name" : "productionQtyHitRate",
-          "appliedTraits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "attributeContext" : "HitRate/attributeContext/HitRate/productionQtyHitRate",
-          "dataFormat" : "Float"
+          "attributeContext" : "Gap/attributeContext/Gap/opexGap",
+          "dataFormat" : "Float",
+          "description" : "落差值 (對比年度預估值) or 落差值 (對比滾動預估值) "
         }
       ]
     }

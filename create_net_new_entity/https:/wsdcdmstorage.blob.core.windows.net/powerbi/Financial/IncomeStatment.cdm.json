@@ -1,0 +1,76 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "cdm:/foundations.cdm.json"
+    },
+    {
+      "corpusPath" : "cdm:/core/wistron/FinancialBasic.cdm.json"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "IncomeStatment",
+      "extendsEntity" : "FinancialBasic",
+      "displayName" : "IncomeStatment",
+      "description" : "This is a IncomeStatment entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "revenue",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月營收"
+        },
+        {
+          "name" : "operationIncome",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月營業利潤"
+        },
+        {
+          "name" : "mva",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月代工費用"
+        },
+        {
+          "name" : "moh",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月生產成本"
+        },
+        {
+          "name" : "materialCost",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月材料成本"
+        },
+        {
+          "name" : "otherCost",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月其他成本"
+        },
+        {
+          "name" : "opex",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月管銷費用"
+        },
+        {
+          "name" : "invoiceQty",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月出貨數量"
+        },
+        {
+          "name" : "productionQty",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月生產數量"
+        }
+      ]
+    }
+  ]
+}
