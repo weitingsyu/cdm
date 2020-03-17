@@ -15,63 +15,129 @@
         "definition" : "resolvedFrom/IncomeStatment",
         "contents" : [
           {
-            "type" : "entityReferenceExtends",
-            "name" : "extends",
+            "type" : "attributeDefinition",
+            "name" : "bg",
             "parent" : "IncomeStatment/attributeContext/IncomeStatment",
+            "definition" : "resolvedFrom/IncomeStatment/hasAttributes/bg",
             "contents" : [
               {
                 "type" : "entity",
-                "name" : "FinancialBasic",
-                "parent" : "IncomeStatment/attributeContext/IncomeStatment/extends",
-                "definition" : "resolvedFrom/FinancialBasic",
+                "name" : "Factory",
+                "parent" : "IncomeStatment/attributeContext/IncomeStatment/bg",
+                "definition" : "resolvedFrom/Factory"
+              },
+              {
+                "type" : "generatedSet",
+                "name" : "_generatedAttributeSet",
+                "parent" : "IncomeStatment/attributeContext/IncomeStatment/bg",
                 "contents" : [
                   {
-                    "type" : "attributeDefinition",
-                    "name" : "bg",
-                    "parent" : "IncomeStatment/attributeContext/IncomeStatment/extends/FinancialBasic",
-                    "definition" : "resolvedFrom/FinancialBasic/hasAttributes/bg",
+                    "type" : "generatedRound",
+                    "name" : "_generatedAttributeRound0",
+                    "parent" : "IncomeStatment/attributeContext/IncomeStatment/bg/_generatedAttributeSet",
                     "contents" : [
-                      "IncomeStatment/hasAttributes/bg"
-                    ]
-                  },
-                  {
-                    "type" : "attributeDefinition",
-                    "name" : "site",
-                    "parent" : "IncomeStatment/attributeContext/IncomeStatment/extends/FinancialBasic",
-                    "definition" : "resolvedFrom/FinancialBasic/hasAttributes/site",
-                    "contents" : [
-                      "IncomeStatment/hasAttributes/site"
-                    ]
-                  },
-                  {
-                    "type" : "attributeDefinition",
-                    "name" : "product",
-                    "parent" : "IncomeStatment/attributeContext/IncomeStatment/extends/FinancialBasic",
-                    "definition" : "resolvedFrom/FinancialBasic/hasAttributes/product",
-                    "contents" : [
-                      "IncomeStatment/hasAttributes/product"
-                    ]
-                  },
-                  {
-                    "type" : "attributeDefinition",
-                    "name" : "type",
-                    "parent" : "IncomeStatment/attributeContext/IncomeStatment/extends/FinancialBasic",
-                    "definition" : "resolvedFrom/FinancialBasic/hasAttributes/type",
-                    "contents" : [
-                      "IncomeStatment/hasAttributes/type"
-                    ]
-                  },
-                  {
-                    "type" : "attributeDefinition",
-                    "name" : "reportingMonth",
-                    "parent" : "IncomeStatment/attributeContext/IncomeStatment/extends/FinancialBasic",
-                    "definition" : "resolvedFrom/FinancialBasic/hasAttributes/reportingMonth",
-                    "contents" : [
-                      "IncomeStatment/hasAttributes/reportingMonth"
+                      {
+                        "type" : "addedAttributeIdentity",
+                        "name" : "_foreignKey",
+                        "parent" : "IncomeStatment/attributeContext/IncomeStatment/bg/_generatedAttributeSet/_generatedAttributeRound0",
+                        "contents" : [
+                          "IncomeStatment/hasAttributes/bg"
+                        ]
+                      }
                     ]
                   }
                 ]
               }
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "site",
+            "parent" : "IncomeStatment/attributeContext/IncomeStatment",
+            "definition" : "resolvedFrom/IncomeStatment/hasAttributes/site",
+            "contents" : [
+              {
+                "type" : "entity",
+                "name" : "Factory",
+                "parent" : "IncomeStatment/attributeContext/IncomeStatment/site",
+                "definition" : "resolvedFrom/Factory"
+              },
+              {
+                "type" : "generatedSet",
+                "name" : "_generatedAttributeSet",
+                "parent" : "IncomeStatment/attributeContext/IncomeStatment/site",
+                "contents" : [
+                  {
+                    "type" : "generatedRound",
+                    "name" : "_generatedAttributeRound0",
+                    "parent" : "IncomeStatment/attributeContext/IncomeStatment/site/_generatedAttributeSet",
+                    "contents" : [
+                      {
+                        "type" : "addedAttributeIdentity",
+                        "name" : "_foreignKey",
+                        "parent" : "IncomeStatment/attributeContext/IncomeStatment/site/_generatedAttributeSet/_generatedAttributeRound0",
+                        "contents" : [
+                          "IncomeStatment/hasAttributes/site"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "product",
+            "parent" : "IncomeStatment/attributeContext/IncomeStatment",
+            "definition" : "resolvedFrom/IncomeStatment/hasAttributes/product",
+            "contents" : [
+              {
+                "type" : "entity",
+                "name" : "Product",
+                "parent" : "IncomeStatment/attributeContext/IncomeStatment/product",
+                "definition" : "resolvedFrom/Product"
+              },
+              {
+                "type" : "generatedSet",
+                "name" : "_generatedAttributeSet",
+                "parent" : "IncomeStatment/attributeContext/IncomeStatment/product",
+                "contents" : [
+                  {
+                    "type" : "generatedRound",
+                    "name" : "_generatedAttributeRound0",
+                    "parent" : "IncomeStatment/attributeContext/IncomeStatment/product/_generatedAttributeSet",
+                    "contents" : [
+                      {
+                        "type" : "addedAttributeIdentity",
+                        "name" : "_foreignKey",
+                        "parent" : "IncomeStatment/attributeContext/IncomeStatment/product/_generatedAttributeSet/_generatedAttributeRound0",
+                        "contents" : [
+                          "IncomeStatment/hasAttributes/product"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "type",
+            "parent" : "IncomeStatment/attributeContext/IncomeStatment",
+            "definition" : "resolvedFrom/IncomeStatment/hasAttributes/type",
+            "contents" : [
+              "IncomeStatment/hasAttributes/type"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "reportingMonth",
+            "parent" : "IncomeStatment/attributeContext/IncomeStatment",
+            "definition" : "resolvedFrom/IncomeStatment/hasAttributes/reportingMonth",
+            "contents" : [
+              "IncomeStatment/hasAttributes/reportingMonth"
             ]
           },
           {
@@ -166,9 +232,25 @@
           "appliedTraits" : [
             "is.dataFormat.character",
             "is.dataFormat.big",
-            "is.dataFormat.array"
+            "is.dataFormat.array",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/Factory.cdm.json/Factory",
+                        "bg"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
           ],
-          "attributeContext" : "IncomeStatment/attributeContext/IncomeStatment/extends/FinancialBasic/bg",
+          "attributeContext" : "IncomeStatment/attributeContext/IncomeStatment/bg/_generatedAttributeSet/_generatedAttributeRound0/_foreignKey",
           "dataFormat" : "String"
         },
         {
@@ -176,9 +258,25 @@
           "appliedTraits" : [
             "is.dataFormat.character",
             "is.dataFormat.big",
-            "is.dataFormat.array"
+            "is.dataFormat.array",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/Factory.cdm.json/Factory",
+                        "site"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
           ],
-          "attributeContext" : "IncomeStatment/attributeContext/IncomeStatment/extends/FinancialBasic/site",
+          "attributeContext" : "IncomeStatment/attributeContext/IncomeStatment/site/_generatedAttributeSet/_generatedAttributeRound0/_foreignKey",
           "dataFormat" : "String"
         },
         {
@@ -186,9 +284,25 @@
           "appliedTraits" : [
             "is.dataFormat.character",
             "is.dataFormat.big",
-            "is.dataFormat.array"
+            "is.dataFormat.array",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/Product.cdm.json/Product",
+                        "product"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
           ],
-          "attributeContext" : "IncomeStatment/attributeContext/IncomeStatment/extends/FinancialBasic/product",
+          "attributeContext" : "IncomeStatment/attributeContext/IncomeStatment/product/_generatedAttributeSet/_generatedAttributeRound0/_foreignKey",
           "dataFormat" : "String"
         },
         {
@@ -198,17 +312,18 @@
             "is.dataFormat.big",
             "is.dataFormat.array"
           ],
-          "attributeContext" : "IncomeStatment/attributeContext/IncomeStatment/extends/FinancialBasic/type",
+          "attributeContext" : "IncomeStatment/attributeContext/IncomeStatment/type",
           "dataFormat" : "String"
         },
         {
           "name" : "reportingMonth",
           "appliedTraits" : [
-            "is.dataFormat.date",
-            "means.measurement.date"
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
           ],
-          "attributeContext" : "IncomeStatment/attributeContext/IncomeStatment/extends/FinancialBasic/reportingMonth",
-          "dataFormat" : "Date"
+          "attributeContext" : "IncomeStatment/attributeContext/IncomeStatment/reportingMonth",
+          "dataFormat" : "String"
         },
         {
           "name" : "revenue",

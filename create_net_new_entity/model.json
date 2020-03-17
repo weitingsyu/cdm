@@ -1,10 +1,10 @@
 {
-  "name" : "financial",
+  "name" : "default",
   "version" : "1.0",
   "entities" : [
     {
       "$type" : "LocalEntity",
-      "name" : "FinancialBasic",
+      "name" : "FactoryInfo",
       "attributes" : [
         {
           "name" : "bg",
@@ -23,38 +23,12 @@
             "is.dataFormat.array"
           ],
           "dataType" : "string"
-        },
-        {
-          "name" : "product",
-          "cdm:traits" : [
-            "is.dataFormat.character",
-            "is.dataFormat.big",
-            "is.dataFormat.array"
-          ],
-          "dataType" : "string"
-        },
-        {
-          "name" : "type",
-          "cdm:traits" : [
-            "is.dataFormat.character",
-            "is.dataFormat.big",
-            "is.dataFormat.array"
-          ],
-          "dataType" : "string"
-        },
-        {
-          "name" : "reportingMonth",
-          "cdm:traits" : [
-            "is.dataFormat.date",
-            "means.measurement.date"
-          ],
-          "dataType" : "dateTime"
         }
       ],
       "partitions" : [
         {
-          "name" : "FinancialBasic-data-description",
-          "location" : "https://ssotstorage.dfs.core.windows.net/powerbi/FinancialBasic/partition-data.csv",
+          "name" : "FactoryInfo-data-description",
+          "location" : "/Users/louis/Documents/workspace/cmmi_project/cdm/create_net_new_entity/FactoryInfo/partition-data.csv",
           "fileFormatSettings" : {
             "$type" : "CsvFormatSettings",
             "columnHeaders" : true,
@@ -64,307 +38,7 @@
       ],
       "cdm:imports" : [
         {
-          "corpusPath" : "FinancialBasic.cdm.json",
-          "moniker" : "resolvedFrom"
-        }
-      ]
-    },
-    {
-      "$type" : "LocalEntity",
-      "name" : "IncomeStatment",
-      "attributes" : [
-        {
-          "name" : "revenue",
-          "description" : "單月營收",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "operationIncome",
-          "description" : "單月營業利潤",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "mva",
-          "description" : "單月代工費用",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "moh",
-          "description" : "單月生產成本",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "materialCost",
-          "description" : "單月材料成本",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "otherCost",
-          "description" : "單月其他成本",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "opex",
-          "description" : "單月管銷費用",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "invoiceQty",
-          "description" : "單月出貨數量",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "productionQty",
-          "description" : "單月生產數量",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        }
-      ],
-      "partitions" : [
-        {
-          "name" : "IncomeStatment-data-description",
-          "location" : "https://ssotstorage.dfs.core.windows.net/powerbi/IncomeStatment/partition-data.csv",
-          "fileFormatSettings" : {
-            "$type" : "CsvFormatSettings",
-            "columnHeaders" : true,
-            "delimiter" : ","
-          }
-        }
-      ],
-      "cdm:imports" : [
-        {
-          "corpusPath" : "IncomeStatment.cdm.json",
-          "moniker" : "resolvedFrom"
-        }
-      ]
-    },
-    {
-      "$type" : "LocalEntity",
-      "name" : "RevenueRatio",
-      "attributes" : [
-        {
-          "name" : "operationIncomeRatio",
-          "description" : "單月營業利潤佔營收比率",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "mohRatio",
-          "description" : "單月生產成本佔營收比率",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "materialCostRatio",
-          "description" : "單月材料成本佔營收比率",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "otherCostRatio",
-          "description" : "單月其他成本佔營收比率",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "opexRatio",
-          "description" : "單月管銷費用佔營收比率",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "grossMarginRatio",
-          "description" : "單月毛利率",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        }
-      ],
-      "partitions" : [
-        {
-          "name" : "RevenueRatio-data-description",
-          "location" : "https://ssotstorage.dfs.core.windows.net/powerbi/RevenueRatio/partition-data.csv",
-          "fileFormatSettings" : {
-            "$type" : "CsvFormatSettings",
-            "columnHeaders" : true,
-            "delimiter" : ","
-          }
-        }
-      ],
-      "cdm:imports" : [
-        {
-          "corpusPath" : "RevenueRatio.cdm.json",
-          "moniker" : "resolvedFrom"
-        }
-      ]
-    },
-    {
-      "$type" : "LocalEntity",
-      "name" : "Gap",
-      "attributes" : [
-        {
-          "name" : "operationIncomeGap",
-          "description" : "落差值 (對比年度預估值) or 落差值 (對比滾動預估值)",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "mohGap",
-          "description" : "落差值 (對比年度預估值) or 落差值 (對比滾動預估值) ",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "metrialCostGap",
-          "description" : "落差值 (對比年度預估值) or 落差值 (對比滾動預估值) ",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "otherGostGap",
-          "description" : "落差值 (對比年度預估值) or 落差值 (對比滾動預估值) ",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "opexGap",
-          "description" : "落差值 (對比年度預估值) or 落差值 (對比滾動預估值) ",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        }
-      ],
-      "partitions" : [
-        {
-          "name" : "Gap-data-description",
-          "location" : "https://ssotstorage.dfs.core.windows.net/powerbi/Gap/partition-data.csv",
-          "fileFormatSettings" : {
-            "$type" : "CsvFormatSettings",
-            "columnHeaders" : true,
-            "delimiter" : ","
-          }
-        }
-      ],
-      "cdm:imports" : [
-        {
-          "corpusPath" : "Gap.cdm.json",
-          "moniker" : "resolvedFrom"
-        }
-      ]
-    },
-    {
-      "$type" : "LocalEntity",
-      "name" : "IncomeStatementHitRate",
-      "attributes" : [
-        {
-          "name" : "revenueHitRate",
-          "description" : "營收達成率 (對比年度預估值) or 營收達成率 (對比滾動預估值)",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "operationIncomeHitRate",
-          "description" : "營收達成率 (對比年度預估值) or 營收達成率 (對比滾動預估值)",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "mvaHitRate",
-          "description" : "營收達成率 (對比年度預估值) or 營收達成率 (對比滾動預估值)",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "mohHitRate",
-          "description" : "營收達成率 (對比年度預估值) or 營收達成率 (對比滾動預估值)",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "invoiceQtyHitRate",
-          "description" : "營收達成率 (對比年度預估值) or 營收達成率 (對比滾動預估值)",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "productionQtyHitRate",
-          "description" : "營收達成率 (對比年度預估值) or 營收達成率 (對比滾動預估值)",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        }
-      ],
-      "partitions" : [
-        {
-          "name" : "IncomeStatementHitRate-data-description",
-          "location" : "https://ssotstorage.dfs.core.windows.net/powerbi/IncomeStatementHitRate/partition-data.csv",
-          "fileFormatSettings" : {
-            "$type" : "CsvFormatSettings",
-            "columnHeaders" : true,
-            "delimiter" : ","
-          }
-        }
-      ],
-      "cdm:imports" : [
-        {
-          "corpusPath" : "IncomeStatementHitRate.cdm.json",
+          "corpusPath" : "FactoryInfo.cdm.json",
           "moniker" : "resolvedFrom"
         }
       ]
@@ -374,34 +48,55 @@
       "name" : "Performance",
       "attributes" : [
         {
-          "name" : "ads",
-          "description" : "產品庫存量(天數)",
+          "name" : "xxx",
           "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
           ],
-          "dataType" : "double"
+          "dataType" : "string"
         },
         {
-          "name" : "yieldRate",
-          "description" : "生產良率",
+          "name" : "Name",
           "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
           ],
-          "dataType" : "double"
+          "dataType" : "string"
         },
         {
-          "name" : "scrapRate",
-          "description" : "生產報廢率",
+          "name" : "bgId",
           "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array",
+            "is.dataFormat.guid",
+            "means.identity.entityId",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/FactoryInfo.cdm.json/FactoryInfo",
+                        "FactoryInfoId"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
           ],
-          "dataType" : "double"
+          "dataType" : "guid"
         }
       ],
       "partitions" : [
         {
           "name" : "Performance-data-description",
-          "location" : "https://ssotstorage.dfs.core.windows.net/powerbi/Performance/partition-data.csv",
+          "location" : "/Users/louis/Documents/workspace/cmmi_project/cdm/create_net_new_entity/Performance/partition-data.csv",
           "fileFormatSettings" : {
             "$type" : "CsvFormatSettings",
             "columnHeaders" : true,
@@ -415,53 +110,19 @@
           "moniker" : "resolvedFrom"
         }
       ]
-    },
+    }
+  ],
+  "relationships" : [
     {
-      "$type" : "LocalEntity",
-      "name" : "PerformanceHitRate",
-      "attributes" : [
-        {
-          "name" : "adsHitRate",
-          "description" : "庫存指標達成率",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "yieldRateHitRate",
-          "description" : "良率指標達成率",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        },
-        {
-          "name" : "scrapRateHitRate",
-          "description" : "報廢指標達成率",
-          "cdm:traits" : [
-            "is.dataFormat.floatingPoint"
-          ],
-          "dataType" : "double"
-        }
-      ],
-      "partitions" : [
-        {
-          "name" : "PerformanceHitRate-data-description",
-          "location" : "https://ssotstorage.dfs.core.windows.net/powerbi/PerformanceHitRate/partition-data.csv",
-          "fileFormatSettings" : {
-            "$type" : "CsvFormatSettings",
-            "columnHeaders" : true,
-            "delimiter" : ","
-          }
-        }
-      ],
-      "cdm:imports" : [
-        {
-          "corpusPath" : "PerformanceHitRate.cdm.json",
-          "moniker" : "resolvedFrom"
-        }
-      ]
+      "$type" : "SingleKeyRelationship",
+      "fromAttribute" : {
+        "entityName" : "Performance",
+        "attributeName" : "bgId"
+      },
+      "toAttribute" : {
+        "entityName" : "FactoryInfo",
+        "attributeName" : "FactoryInfoId"
+      }
     }
   ],
   "cdm:imports" : [

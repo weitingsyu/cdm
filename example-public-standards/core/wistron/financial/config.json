@@ -4,16 +4,9 @@
     {
       "type" : "local",
       "config" : {
-        "root" : ".././example-public-standards/core/wistron"
+        "root" : ".././example-public-standards/core/wistron/financial"
       },
       "namespace" : "local"
-    },
-    {
-      "type" : "local",
-      "config" : {
-        "root" : ".././example-public-standards"
-      },
-      "namespace" : "cdm"
     },
     {
       "type" : "adls",

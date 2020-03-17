@@ -1,0 +1,178 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "Factory.cdm.json"
+    },
+    {
+      "corpusPath" : "Factory.cdm.json"
+    },
+    {
+      "corpusPath" : "Product.cdm.json"
+    },
+    {
+      "corpusPath" : "cdm:/foundations.cdm.json"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "IncomeStatment",
+      "displayName" : "IncomeStatment",
+      "description" : "This is a IncomeStatment entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "explanation" : "BG relation",
+          "entity" : {
+            "entityReference" : "Factory",
+            "appliedTraits" : [
+              {
+                "traitReference" : "is.identifiedBy",
+                "arguments" : [
+                  "Factory/(resolvedAttributes)/bg"
+                ]
+              }
+            ]
+          },
+          "name" : "bg",
+          "resolutionGuidance" : {
+            "renameFormat" : "{m}",
+            "entityByReference" : {
+              "allowReference" : true,
+              "foreignKeyAttribute" : {
+                "name" : "bg",
+                "purpose" : "hasA",
+                "dataType" : "string",
+                "appliedTraits" : [
+                  "is.linkedEntity.identifier"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "explanation" : "Site relation",
+          "entity" : {
+            "entityReference" : "Factory",
+            "appliedTraits" : [
+              {
+                "traitReference" : "is.identifiedBy",
+                "arguments" : [
+                  "Factory/(resolvedAttributes)/site"
+                ]
+              }
+            ]
+          },
+          "name" : "site",
+          "resolutionGuidance" : {
+            "renameFormat" : "{m}",
+            "entityByReference" : {
+              "allowReference" : true,
+              "foreignKeyAttribute" : {
+                "name" : "site",
+                "purpose" : "hasA",
+                "dataType" : "string",
+                "appliedTraits" : [
+                  "is.linkedEntity.identifier"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "explanation" : "Product Relation",
+          "entity" : {
+            "entityReference" : "Product",
+            "appliedTraits" : [
+              {
+                "traitReference" : "is.identifiedBy",
+                "arguments" : [
+                  "Product/(resolvedAttributes)/product"
+                ]
+              }
+            ]
+          },
+          "name" : "product",
+          "resolutionGuidance" : {
+            "renameFormat" : "{m}",
+            "entityByReference" : {
+              "allowReference" : true,
+              "foreignKeyAttribute" : {
+                "name" : "product",
+                "purpose" : "hasA",
+                "dataType" : "string",
+                "appliedTraits" : [
+                  "is.linkedEntity.identifier"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "name" : "type",
+          "purpose" : "hasA",
+          "dataType" : "string"
+        },
+        {
+          "name" : "reportingMonth",
+          "purpose" : "hasA",
+          "dataType" : "string"
+        },
+        {
+          "name" : "revenue",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月營收"
+        },
+        {
+          "name" : "operationIncome",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月營業利潤"
+        },
+        {
+          "name" : "mva",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月代工費用"
+        },
+        {
+          "name" : "moh",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月生產成本"
+        },
+        {
+          "name" : "materialCost",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月材料成本"
+        },
+        {
+          "name" : "otherCost",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月其他成本"
+        },
+        {
+          "name" : "opex",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月管銷費用"
+        },
+        {
+          "name" : "invoiceQty",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月出貨數量"
+        },
+        {
+          "name" : "productionQty",
+          "purpose" : "hasA",
+          "dataType" : "float",
+          "description" : "單月生產數量"
+        }
+      ]
+    }
+  ]
+}

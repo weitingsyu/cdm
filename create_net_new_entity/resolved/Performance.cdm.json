@@ -15,77 +15,113 @@
         "definition" : "resolvedFrom/Performance",
         "contents" : [
           {
-            "type" : "entityReferenceExtends",
-            "name" : "extends",
+            "type" : "attributeDefinition",
+            "name" : "xxx",
             "parent" : "Performance/attributeContext/Performance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/xxx",
+            "contents" : [
+              "Performance/hasAttributes/xxx"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "Name",
+            "parent" : "Performance/attributeContext/Performance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/Name",
+            "contents" : [
+              "Performance/hasAttributes/Name"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "bg",
+            "parent" : "Performance/attributeContext/Performance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/bg",
             "contents" : [
               {
                 "type" : "entity",
-                "name" : "FinancialBasic",
-                "parent" : "Performance/attributeContext/Performance/extends",
-                "definition" : "resolvedFrom/FinancialBasic"
+                "name" : "FactoryInfo",
+                "parent" : "Performance/attributeContext/Performance/bg",
+                "definition" : "resolvedFrom/FactoryInfo"
+              },
+              {
+                "type" : "generatedSet",
+                "name" : "_generatedAttributeSet",
+                "parent" : "Performance/attributeContext/Performance/bg",
+                "contents" : [
+                  {
+                    "type" : "generatedRound",
+                    "name" : "_generatedAttributeRound0",
+                    "parent" : "Performance/attributeContext/Performance/bg/_generatedAttributeSet",
+                    "contents" : [
+                      {
+                        "type" : "addedAttributeIdentity",
+                        "name" : "_foreignKey",
+                        "parent" : "Performance/attributeContext/Performance/bg/_generatedAttributeSet/_generatedAttributeRound0",
+                        "contents" : [
+                          "Performance/hasAttributes/bgId"
+                        ]
+                      }
+                    ]
+                  }
+                ]
               }
-            ]
-          },
-          {
-            "type" : "attributeDefinition",
-            "name" : "ads",
-            "parent" : "Performance/attributeContext/Performance",
-            "definition" : "resolvedFrom/Performance/hasAttributes/ads",
-            "contents" : [
-              "Performance/hasAttributes/ads"
-            ]
-          },
-          {
-            "type" : "attributeDefinition",
-            "name" : "yieldRate",
-            "parent" : "Performance/attributeContext/Performance",
-            "definition" : "resolvedFrom/Performance/hasAttributes/yieldRate",
-            "contents" : [
-              "Performance/hasAttributes/yieldRate"
-            ]
-          },
-          {
-            "type" : "attributeDefinition",
-            "name" : "scrapRate",
-            "parent" : "Performance/attributeContext/Performance",
-            "definition" : "resolvedFrom/Performance/hasAttributes/scrapRate",
-            "contents" : [
-              "Performance/hasAttributes/scrapRate"
             ]
           }
         ]
       },
-      "displayName" : "Performance",
-      "description" : "This is a Performance entity.",
+      "displayName" : "CustomAccount",
+      "description" : "This is a custom entity created for the sample.",
       "version" : "0.0.1",
       "hasAttributes" : [
         {
-          "name" : "ads",
+          "name" : "xxx",
           "appliedTraits" : [
-            "is.dataFormat.floatingPoint"
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
           ],
-          "attributeContext" : "Performance/attributeContext/Performance/ads",
-          "dataFormat" : "Float",
-          "description" : "產品庫存量(天數)"
+          "attributeContext" : "Performance/attributeContext/Performance/xxx",
+          "dataFormat" : "String"
         },
         {
-          "name" : "yieldRate",
+          "name" : "Name",
           "appliedTraits" : [
-            "is.dataFormat.floatingPoint"
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
           ],
-          "attributeContext" : "Performance/attributeContext/Performance/yieldRate",
-          "dataFormat" : "Float",
-          "description" : "生產良率"
+          "attributeContext" : "Performance/attributeContext/Performance/Name",
+          "dataFormat" : "String"
         },
         {
-          "name" : "scrapRate",
+          "name" : "bgId",
           "appliedTraits" : [
-            "is.dataFormat.floatingPoint"
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array",
+            "is.dataFormat.guid",
+            "means.identity.entityId",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/FactoryInfo.cdm.json/FactoryInfo",
+                        "FactoryInfoId"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
           ],
-          "attributeContext" : "Performance/attributeContext/Performance/scrapRate",
-          "dataFormat" : "Float",
-          "description" : "生產報廢率"
+          "attributeContext" : "Performance/attributeContext/Performance/bg/_generatedAttributeSet/_generatedAttributeRound0/_foreignKey",
+          "isPrimaryKey" : true,
+          "dataFormat" : "Guid"
         }
       ]
     }

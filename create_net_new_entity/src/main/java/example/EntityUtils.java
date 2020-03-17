@@ -10,18 +10,67 @@ import com.microsoft.commondatamodel.objectmodel.cdm.CdmEntityAttributeDefinitio
 import com.microsoft.commondatamodel.objectmodel.cdm.CdmEntityDefinition;
 import com.microsoft.commondatamodel.objectmodel.cdm.CdmEntityReference;
 import com.microsoft.commondatamodel.objectmodel.cdm.CdmFolderDefinition;
-import com.microsoft.commondatamodel.objectmodel.cdm.CdmManifestDefinition;
 import com.microsoft.commondatamodel.objectmodel.cdm.CdmTraitReference;
 import com.microsoft.commondatamodel.objectmodel.cdm.CdmTypeAttributeDefinition;
 import com.microsoft.commondatamodel.objectmodel.enums.CdmObjectType;
 
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
 public class EntityUtils {
 
-        public static void create(CdmCorpusDefinition cdmCorpus, CdmManifestDefinition manifestAbstract,
-                        CdmFolderDefinition localRoot, String entityName, List<EntityInfo> entityInfos,
-                        String extendEntity, String schemaDocsRoot, String fundationJsonPath)
+        public static CdmEntityDefinition createEntity(CdmCorpusDefinition cdmCorpus, CdmFolderDefinition localRoot,
+                        String entityName, List<EntityInfo> entityInfos, List<RelationInfo> relations,
+                        String fundationJsonPath) {
+
+                System.out.println("Create " + entityName + " entities");
+                CdmEntityDefinition entity = null;
+                CdmDocumentDefinition entityDoc = cdmCorpus.makeObject(CdmObjectType.DocumentDef,
+                                entityName + ".cdm.json", false);
+                if (CollectionUtils.isNotEmpty(relations)) {
+                        entity = cdmCorpus.makeObject(CdmObjectType.EntityDef, entityName, false);
+                        for (RelationInfo relationInfo : relations) {
+                                CdmEntityAttributeDefinition attribute = createAttributeForRelationshipBetweenTwoEntities(
+                                                cdmCorpus, relationInfo.getEntityName(), relationInfo.getColumnName(),
+                                                relationInfo.getDescription());
+                                entity.getAttributes().add(attribute);
+                                entityDoc.getImports().add(relationInfo.getEntityName() + ".cdm.json");
+                        }
+
+                } else {
+                        entity = cdmCorpus.makeObject(CdmObjectType.EntityDef, entityName);
+                }
+
+                for (
+
+                EntityInfo entityInfo : entityInfos) {
+                        CdmTypeAttributeDefinition attribute = createEntityAttributeWithPurposeAndDataType(cdmCorpus,
+                                        entityInfo.getAttributeName(), //
+                                        entityInfo.getPurpose(), //
+                                        entityInfo.getDataType()//
+
+                        );
+                        attribute.updateDescription(entityInfo.getDescription());
+                        entity.getAttributes().add(attribute);
+                }
+                entity.setDisplayName(entityName);
+                entity.setVersion("0.0.1");
+                entity.setDescription("This is a " + entityName + " entity.");
+
+                // Add an import to the foundations doc so the traits about partitons will
+                // resolve nicely
+                entityDoc.getImports().add(fundationJsonPath);
+                entityDoc.getDefinitions().add(entity);
+                // Add the document to the root of the local documents in the corpus
+                localRoot.getDocuments().add(entityDoc);
+
+                return entity;
+
+        }
+
+        public static CdmEntityDefinition create(CdmCorpusDefinition cdmCorpus, CdmFolderDefinition localRoot,
+                        String entityName, List<EntityInfo> entityInfos, String extendEntity, String schemaDocsRoot,
+                        String fundationJsonPath, List<RelationInfo> relations)
                         throws ExecutionException, InterruptedException {
 
                 // Create two entities from scratch, and add some attributes, traits,
@@ -31,11 +80,27 @@ public class EntityUtils {
                 // Create the simplest entity - CustomPerson
                 // Create the entity definition instance
                 CdmEntityDefinition entity = cdmCorpus.makeObject(CdmObjectType.EntityDef, entityName);
+                CdmDocumentDefinition basicInfoEntityDoc = cdmCorpus.makeObject(CdmObjectType.DocumentDef,
+                                entityName + ".cdm.json", false);
                 if (StringUtils.isNotEmpty(extendEntity)) {
                         entity.setExtendsEntity(cdmCorpus.makeObject(CdmObjectType.EntityRef, extendEntity, true));
                 }
+
+                if (relations != null) {
+                        for (RelationInfo relationInfo : relations) {
+                                entity.getAttributes().add(createAttributeForRelationshipBetweenTwoEntities(cdmCorpus, //
+                                                relationInfo.getEntityName(), //
+                                                relationInfo.getColumnName(), //
+                                                relationInfo.getDescription()));
+
+                                basicInfoEntityDoc.getImports().add(relationInfo.getJsonPath() + ".cdm.json");
+                        }
+                }
+
                 // Add type attributes to the entity instance
-                for (EntityInfo entityInfo : entityInfos) {
+                for (
+
+                EntityInfo entityInfo : entityInfos) {
                         CdmTypeAttributeDefinition attribute = createEntityAttributeWithPurposeAndDataType(cdmCorpus,
                                         entityInfo.getAttributeName(), //
                                         entityInfo.getPurpose(), //
@@ -51,41 +116,19 @@ public class EntityUtils {
                 entity.setVersion("0.0.1");
                 entity.setDescription("This is a " + entityName + " entity.");
 
+                basicInfoEntityDoc.getImports().add(fundationJsonPath);
                 if (StringUtils.isNotBlank(extendEntity)) {
-                        CdmDocumentDefinition extendedStandardAccountEntityDoc = cdmCorpus
-                                        .makeObject(CdmObjectType.DocumentDef, entityName + ".cdm.json", false);
-                        // Add an import to the foundations doc so the traits about partitons will
-                        // resolve nicely
-                        extendedStandardAccountEntityDoc.getImports().add(fundationJsonPath);
-                        // The ExtendedAccount entity extends from the "Account" entity from standards,
-                        // the import to the entity Account's doc is required
-                        // it also has a relationship with the CustomAccount entity, the relationship
-                        // defined from its from its attribute with traits, the import to the entity
-                        // reference CustomAccount's doc is required
-                        extendedStandardAccountEntityDoc.getImports()
-                                        .add(schemaDocsRoot + "/" + extendEntity + ".cdm.json");
+
+                        basicInfoEntityDoc.getImports().add(schemaDocsRoot + "/" + extendEntity + ".cdm.json");
 
                         // Add the document to the root of the local documents in the corpus
-                        localRoot.getDocuments().add(extendedStandardAccountEntityDoc);
-                        extendedStandardAccountEntityDoc.getDefinitions().add(entity);
 
-                } else {
-                        // Create the document which contains the entity
-                        CdmDocumentDefinition basicInfoEntityDoc = cdmCorpus.makeObject(CdmObjectType.DocumentDef,
-                                        entityName + ".cdm.json", false);
-                        // Add an import to the foundations doc so the traits about partitons will
-                        // resolve nicely
-                        basicInfoEntityDoc.getImports().add(fundationJsonPath);
-                        basicInfoEntityDoc.getDefinitions().add(entity);
-                        // Add the document to the root of the local documents in the corpus
-                        localRoot.getDocuments().add(basicInfoEntityDoc);
                 }
 
-                // Add the entity to the manifest
-                manifestAbstract.getEntities().add(entity);
-
-                // Create the resolved version of everything in the root folder too
+                localRoot.getDocuments().add(basicInfoEntityDoc);
+                basicInfoEntityDoc.getDefinitions().add(entity);
                 System.out.println(entityName + " -- Resolve the placeholder");
+                return entity;
 
         }
 
@@ -165,9 +208,9 @@ public class EntityUtils {
                 // Creating a "is.identifiedBy" trait for entity reference
                 CdmTraitReference traitReference = cdmCorpus.makeObject(CdmObjectType.TraitRef, "is.identifiedBy",
                                 false);
-                String s = associatedEntityName + "/(resolvedAttributes)/" + associatedEntityName + "Id";
+                String s = associatedEntityName + "/(resolvedAttributes)/" + associatedEntityName;
                 traitReference.getArguments().add(null,
-                                associatedEntityName + "/(resolvedAttributes)/" + associatedEntityName + "Id");
+                                associatedEntityName + "/(resolvedAttributes)/" + foreignKeyName);
 
                 // Add the trait to the attribute's entity reference
                 associatedEntityRef.getAppliedTraits().add(traitReference);
@@ -178,9 +221,12 @@ public class EntityUtils {
                                 .makeObject(CdmObjectType.AttributeResolutionGuidanceDef);
                 attributeResolution.setEntityByReference(attributeResolution.makeEntityByReference());
                 attributeResolution.getEntityByReference().setAllowReference(true);
+
                 attributeResolution.setRenameFormat("{m}");
+
                 CdmTypeAttributeDefinition entityAttribute = createEntityAttributeWithPurposeAndDataType(cdmCorpus,
-                                foreignKeyName + "Id", "identifiedBy", "entityId");
+                                foreignKeyName
+                                , "hasA", "string");
                 attributeResolution.getEntityByReference().setForeignKeyAttribute(entityAttribute);
                 entityAttributeDef.setResolutionGuidance(attributeResolution);
                 return entityAttributeDef;

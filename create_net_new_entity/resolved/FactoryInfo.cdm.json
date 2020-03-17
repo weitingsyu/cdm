@@ -1,0 +1,64 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "/FactoryInfo.cdm.json",
+      "moniker" : "resolvedFrom"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "FactoryInfo",
+      "attributeContext" : {
+        "type" : "entity",
+        "name" : "FactoryInfo",
+        "definition" : "resolvedFrom/FactoryInfo",
+        "contents" : [
+          {
+            "type" : "attributeDefinition",
+            "name" : "bg",
+            "parent" : "FactoryInfo/attributeContext/FactoryInfo",
+            "definition" : "resolvedFrom/FactoryInfo/hasAttributes/bg",
+            "contents" : [
+              "FactoryInfo/hasAttributes/bg"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "site",
+            "parent" : "FactoryInfo/attributeContext/FactoryInfo",
+            "definition" : "resolvedFrom/FactoryInfo/hasAttributes/site",
+            "contents" : [
+              "FactoryInfo/hasAttributes/site"
+            ]
+          }
+        ]
+      },
+      "displayName" : "FactoryInfo",
+      "description" : "This is a custom entity created for the sample.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "bg",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "FactoryInfo/attributeContext/FactoryInfo/bg",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "site",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "FactoryInfo/attributeContext/FactoryInfo/site",
+          "dataFormat" : "String"
+        }
+      ]
+    }
+  ]
+}

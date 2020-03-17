@@ -1,0 +1,513 @@
+{
+  "name" : "financial",
+  "version" : "1.0",
+  "entities" : [
+    {
+      "$type" : "LocalEntity",
+      "name" : "Factory",
+      "attributes" : [
+        {
+          "name" : "bg",
+          "description" : "所屬事業群",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "site",
+          "description" : "工廠Site名稱",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "address",
+          "description" : "工廠地址",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "county",
+          "description" : "工廠所屬國家",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "dataType" : "string"
+        }
+      ],
+      "partitions" : [
+        {
+          "name" : "Factory-data-description",
+          "location" : "https://wsdcdmstorage.dfs.core.windows.net/powerbi/Financial/Factory/partition-data.csv",
+          "fileFormatSettings" : {
+            "$type" : "CsvFormatSettings",
+            "columnHeaders" : true,
+            "delimiter" : ","
+          }
+        }
+      ],
+      "cdm:imports" : [
+        {
+          "corpusPath" : "Factory.cdm.json",
+          "moniker" : "resolvedFrom"
+        }
+      ]
+    },
+    {
+      "$type" : "LocalEntity",
+      "name" : "Product",
+      "attributes" : [
+        {
+          "name" : "product",
+          "description" : "產品名稱",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "custom",
+          "description" : "客戶名稱",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "dataType" : "string"
+        }
+      ],
+      "partitions" : [
+        {
+          "name" : "Product-data-description",
+          "location" : "https://wsdcdmstorage.dfs.core.windows.net/powerbi/Financial/Product/partition-data.csv",
+          "fileFormatSettings" : {
+            "$type" : "CsvFormatSettings",
+            "columnHeaders" : true,
+            "delimiter" : ","
+          }
+        }
+      ],
+      "cdm:imports" : [
+        {
+          "corpusPath" : "Product.cdm.json",
+          "moniker" : "resolvedFrom"
+        }
+      ]
+    },
+    {
+      "$type" : "LocalEntity",
+      "name" : "Performance",
+      "attributes" : [
+        {
+          "name" : "bg",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/Factory.cdm.json/Factory",
+                        "bg"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "site",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/Factory.cdm.json/Factory",
+                        "site"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "product",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/Product.cdm.json/Product",
+                        "product"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "type",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "reportingMonth",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "ads",
+          "description" : "產品庫存量(天數)",
+          "cdm:traits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "dataType" : "double"
+        },
+        {
+          "name" : "yieldRate",
+          "description" : "生產良率",
+          "cdm:traits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "dataType" : "double"
+        },
+        {
+          "name" : "scrapRate",
+          "description" : "生產報廢率",
+          "cdm:traits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "dataType" : "double"
+        }
+      ],
+      "partitions" : [
+        {
+          "name" : "Performance-data-description",
+          "location" : "https://wsdcdmstorage.dfs.core.windows.net/powerbi/Financial/Performance/partition-data.csv",
+          "fileFormatSettings" : {
+            "$type" : "CsvFormatSettings",
+            "columnHeaders" : true,
+            "delimiter" : ","
+          }
+        }
+      ],
+      "cdm:imports" : [
+        {
+          "corpusPath" : "Performance.cdm.json",
+          "moniker" : "resolvedFrom"
+        }
+      ]
+    },
+    {
+      "$type" : "LocalEntity",
+      "name" : "IncomeStatment",
+      "attributes" : [
+        {
+          "name" : "bg",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/Factory.cdm.json/Factory",
+                        "bg"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "site",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/Factory.cdm.json/Factory",
+                        "site"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "product",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/Product.cdm.json/Product",
+                        "product"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "type",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "reportingMonth",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "revenue",
+          "description" : "單月營收",
+          "cdm:traits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "dataType" : "double"
+        },
+        {
+          "name" : "operationIncome",
+          "description" : "單月營業利潤",
+          "cdm:traits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "dataType" : "double"
+        },
+        {
+          "name" : "mva",
+          "description" : "單月代工費用",
+          "cdm:traits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "dataType" : "double"
+        },
+        {
+          "name" : "moh",
+          "description" : "單月生產成本",
+          "cdm:traits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "dataType" : "double"
+        },
+        {
+          "name" : "materialCost",
+          "description" : "單月材料成本",
+          "cdm:traits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "dataType" : "double"
+        },
+        {
+          "name" : "otherCost",
+          "description" : "單月其他成本",
+          "cdm:traits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "dataType" : "double"
+        },
+        {
+          "name" : "opex",
+          "description" : "單月管銷費用",
+          "cdm:traits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "dataType" : "double"
+        },
+        {
+          "name" : "invoiceQty",
+          "description" : "單月出貨數量",
+          "cdm:traits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "dataType" : "double"
+        },
+        {
+          "name" : "productionQty",
+          "description" : "單月生產數量",
+          "cdm:traits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "dataType" : "double"
+        }
+      ],
+      "partitions" : [
+        {
+          "name" : "IncomeStatment-data-description",
+          "location" : "https://wsdcdmstorage.dfs.core.windows.net/powerbi/Financial/IncomeStatment/partition-data.csv",
+          "fileFormatSettings" : {
+            "$type" : "CsvFormatSettings",
+            "columnHeaders" : true,
+            "delimiter" : ","
+          }
+        }
+      ],
+      "cdm:imports" : [
+        {
+          "corpusPath" : "IncomeStatment.cdm.json",
+          "moniker" : "resolvedFrom"
+        }
+      ]
+    }
+  ],
+  "relationships" : [
+    {
+      "$type" : "SingleKeyRelationship",
+      "fromAttribute" : {
+        "entityName" : "Performance",
+        "attributeName" : "bg"
+      },
+      "toAttribute" : {
+        "entityName" : "Factory",
+        "attributeName" : "bg"
+      }
+    },
+    {
+      "$type" : "SingleKeyRelationship",
+      "fromAttribute" : {
+        "entityName" : "Performance",
+        "attributeName" : "site"
+      },
+      "toAttribute" : {
+        "entityName" : "Factory",
+        "attributeName" : "site"
+      }
+    },
+    {
+      "$type" : "SingleKeyRelationship",
+      "fromAttribute" : {
+        "entityName" : "IncomeStatment",
+        "attributeName" : "bg"
+      },
+      "toAttribute" : {
+        "entityName" : "Factory",
+        "attributeName" : "bg"
+      }
+    },
+    {
+      "$type" : "SingleKeyRelationship",
+      "fromAttribute" : {
+        "entityName" : "IncomeStatment",
+        "attributeName" : "site"
+      },
+      "toAttribute" : {
+        "entityName" : "Factory",
+        "attributeName" : "site"
+      }
+    },
+    {
+      "$type" : "SingleKeyRelationship",
+      "fromAttribute" : {
+        "entityName" : "Performance",
+        "attributeName" : "product"
+      },
+      "toAttribute" : {
+        "entityName" : "Product",
+        "attributeName" : "product"
+      }
+    },
+    {
+      "$type" : "SingleKeyRelationship",
+      "fromAttribute" : {
+        "entityName" : "IncomeStatment",
+        "attributeName" : "product"
+      },
+      "toAttribute" : {
+        "entityName" : "Product",
+        "attributeName" : "product"
+      }
+    }
+  ],
+  "cdm:imports" : [
+    {
+      "corpusPath" : "cdm:/foundations.cdm.json"
+    }
+  ]
+}

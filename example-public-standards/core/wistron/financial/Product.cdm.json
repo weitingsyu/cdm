@@ -1,0 +1,30 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "cdm:/foundations.cdm.json"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "Product",
+      "displayName" : "Product",
+      "description" : "This is a Product entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "product",
+          "purpose" : "hasA",
+          "dataType" : "string",
+          "description" : "產品名稱"
+        },
+        {
+          "name" : "custom",
+          "purpose" : "hasA",
+          "dataType" : "string",
+          "description" : "客戶名稱"
+        }
+      ]
+    }
+  ]
+}

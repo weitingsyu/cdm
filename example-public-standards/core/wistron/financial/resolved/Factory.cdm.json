@@ -1,0 +1,106 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "/Factory.cdm.json",
+      "moniker" : "resolvedFrom"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "Factory",
+      "attributeContext" : {
+        "type" : "entity",
+        "name" : "Factory",
+        "definition" : "resolvedFrom/Factory",
+        "contents" : [
+          {
+            "type" : "attributeDefinition",
+            "name" : "bg",
+            "parent" : "Factory/attributeContext/Factory",
+            "definition" : "resolvedFrom/Factory/hasAttributes/bg",
+            "contents" : [
+              "Factory/hasAttributes/bg"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "site",
+            "parent" : "Factory/attributeContext/Factory",
+            "definition" : "resolvedFrom/Factory/hasAttributes/site",
+            "contents" : [
+              "Factory/hasAttributes/site"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "address",
+            "parent" : "Factory/attributeContext/Factory",
+            "definition" : "resolvedFrom/Factory/hasAttributes/address",
+            "contents" : [
+              "Factory/hasAttributes/address"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "county",
+            "parent" : "Factory/attributeContext/Factory",
+            "definition" : "resolvedFrom/Factory/hasAttributes/county",
+            "contents" : [
+              "Factory/hasAttributes/county"
+            ]
+          }
+        ]
+      },
+      "displayName" : "Factory",
+      "description" : "This is a Factory entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "bg",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "Factory/attributeContext/Factory/bg",
+          "dataFormat" : "String",
+          "description" : "所屬事業群"
+        },
+        {
+          "name" : "site",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "Factory/attributeContext/Factory/site",
+          "dataFormat" : "String",
+          "description" : "工廠Site名稱"
+        },
+        {
+          "name" : "address",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "Factory/attributeContext/Factory/address",
+          "dataFormat" : "String",
+          "description" : "工廠地址"
+        },
+        {
+          "name" : "county",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "Factory/attributeContext/Factory/county",
+          "dataFormat" : "String",
+          "description" : "工廠所屬國家"
+        }
+      ]
+    }
+  ]
+}

@@ -17,10 +17,11 @@ import com.microsoft.commondatamodel.objectmodel.enums.CdmObjectType;
 import com.microsoft.commondatamodel.objectmodel.storage.AdlsAdapter;
 import com.microsoft.commondatamodel.objectmodel.storage.LocalAdapter;
 
-public class WistronCDM {
-        private final static String SCHEMA_DOCS_ROOT = "cdm:/core/wistron";
+public class WistronPerformanceCDM {
+        private final static String SCHEMA_DOCS_ROOT = "cdm:/core/wistron/financial";
 
         private final static String FOUNDATION_JSON_PATH = "cdm:/foundations.cdm.json";
+        private final static String FACTORY_JSON_PATH = "FactoryInfo";
         private final static Set<String> entities = new HashSet<String>();
 
         public static void main(String[] args) throws ExecutionException, InterruptedException {
@@ -36,9 +37,11 @@ public class WistronCDM {
                 String pathFromExeToExampleRoot = "./";
 
                 cdmCorpus.getStorage().mount("local", new LocalAdapter(
-                                "../" + pathFromExeToExampleRoot + "example-public-standards/core/wistron"));
+                                "../" + pathFromExeToExampleRoot + "example-public-standards/core/wistron/financial"));
+                // cdmCorpus.getStorage().mount("factory", new LocalAdapter(
+                //                 "../" + pathFromExeToExampleRoot + "example-public-standards/core/wistron/factory"));
                 final AdlsAdapter adlsAdapter = new AdlsAdapter("wsdcdmstorage.dfs.core.windows.net", // Hostname.
-                                "/powerbi/Financial", // Root.
+                                "/powerbi/Financial2", // Root.
                                 "69a44e1e-8420-46e1-b62c-888963ec4c3b", // Tenant ID.
                                 "b3b6e653-8e60-4d71-8690-e573c3c5863b", // Client ID.
                                 "e8_kP_5a9mYs:RPH?qbDq3YA2uwFC0ds" // Client secret.
@@ -62,41 +65,48 @@ public class WistronCDM {
                 CdmFolderDefinition localRoot = cdmCorpus.getStorage().fetchRootFolder("local");
                 localRoot.getDocuments().add(manifestAbstract);
                 // basic cloumn : bg, type, site, model, reportingMonth
-                EntityUtils.create(cdmCorpus, manifestAbstract, localRoot, "FinancialBasic",
-                                getFinancialBasicEntityInfo(), "", SCHEMA_DOCS_ROOT, FOUNDATION_JSON_PATH);
+                List<RelationInfo> relations = new ArrayList<RelationInfo>();
+                relations.add(RelationInfo.builder().entityName("FactoryInfo").columnName("bg")
+                                .jsonPath(FACTORY_JSON_PATH).description("BG relation").build());
+                relations.add(RelationInfo.builder().entityName("FactoryInfo").columnName("site")
+                                .jsonPath(FACTORY_JSON_PATH).description("Site relation").build());
+
+                manifestAbstract.getEntities().add(EntityUtils.create(cdmCorpus, localRoot, "FactoryInfo",
+                                getFinancialBasicEntityInfo(), "", SCHEMA_DOCS_ROOT, FOUNDATION_JSON_PATH, null));
                 createDefaultCdmJson(cdmCorpus, manifestAbstract);
 
                 // income statment
-                EntityUtils.create(cdmCorpus, manifestAbstract, localRoot, "IncomeStatment",
-                                getIncomeStatmentEntityInfo(), "FinancialBasic", SCHEMA_DOCS_ROOT,
-                                FOUNDATION_JSON_PATH);
-                createDefaultCdmJson(cdmCorpus, manifestAbstract);
+                // manifestAbstract.getEntities()
+                // .add(EntityUtils.create(cdmCorpus, localRoot, "IncomeStatment",
+                // getIncomeStatmentEntityInfo(), "FinancialBasic", SCHEMA_DOCS_ROOT,
+                // FOUNDATION_JSON_PATH, null));
 
-                // revenue ratio
-                EntityUtils.create(cdmCorpus, manifestAbstract, localRoot, "RevenueRatio", getRevenueRatio(), "",
-                                SCHEMA_DOCS_ROOT, FOUNDATION_JSON_PATH);
-                createDefaultCdmJson(cdmCorpus, manifestAbstract);
+                // // revenue ratio
+                // manifestAbstract.getEntities().add(EntityUtils.create(cdmCorpus, localRoot,
+                // "RevenueRatio",
+                // getRevenueRatio(), "", SCHEMA_DOCS_ROOT, FOUNDATION_JSON_PATH, null));
 
-                // Gap
-                EntityUtils.create(cdmCorpus, manifestAbstract, localRoot, "Gap", getGapEntityInfo(), "FinancialBasic",
-                                SCHEMA_DOCS_ROOT, FOUNDATION_JSON_PATH);
-                createDefaultCdmJson(cdmCorpus, manifestAbstract);
+                // // Gap
+                // manifestAbstract.getEntities().add(EntityUtils.create(cdmCorpus, localRoot,
+                // "Gap", getGapEntityInfo(),
+                // "FinancialBasic", SCHEMA_DOCS_ROOT, FOUNDATION_JSON_PATH, null));
 
-                // income statement Hit Rate
-                EntityUtils.create(cdmCorpus, manifestAbstract, localRoot, "IncomeStatementHitRate",
-                                getIncomeStatmentHitRateEntityInfo(), "FinancialBasic", SCHEMA_DOCS_ROOT,
-                                FOUNDATION_JSON_PATH);
-                createDefaultCdmJson(cdmCorpus, manifestAbstract);
+                // // income statement Hit Rate
+                // manifestAbstract.getEntities()
+                // .add(EntityUtils.create(cdmCorpus, localRoot, "IncomeStatmentHitRate",
+                // getIncomeStatmentHitRateEntityInfo(), "FinancialBasic",
+                // SCHEMA_DOCS_ROOT, FOUNDATION_JSON_PATH, null));
 
                 // Performance
-                EntityUtils.create(cdmCorpus, manifestAbstract, localRoot, "Performance", getPerformanceEntityInfo(),
-                                "FinancialBasic", SCHEMA_DOCS_ROOT, FOUNDATION_JSON_PATH);
-                createDefaultCdmJson(cdmCorpus, manifestAbstract);
+                manifestAbstract.getEntities()
+                                .add(EntityUtils.create(cdmCorpus, localRoot, "Performance", getPerformanceEntityInfo(),
+                                                "FinancialBasic", SCHEMA_DOCS_ROOT, FOUNDATION_JSON_PATH, null));
 
                 // Performance Hit Rate
-                EntityUtils.create(cdmCorpus, manifestAbstract, localRoot, "PerformanceHitRate",
-                                getPerformanceHitRateEntityInfo(), "FinancialBasic", SCHEMA_DOCS_ROOT,
-                                FOUNDATION_JSON_PATH);
+                // manifestAbstract.getEntities()
+                // .add(EntityUtils.create(cdmCorpus, localRoot, "PerformanceHitRate",
+                // getPerformanceHitRateEntityInfo(), "FinancialBasic", SCHEMA_DOCS_ROOT,
+                // FOUNDATION_JSON_PATH, null));
                 createDefaultCdmJson(cdmCorpus, manifestAbstract);
                 createDefaultCdmJson(cdmCorpus, manifestAbstract);
 
@@ -217,6 +227,7 @@ public class WistronCDM {
 
         private static List<EntityInfo> getFinancialBasicEntityInfo() {
                 List<EntityInfo> entityInfos = new ArrayList<EntityInfo>();
+
                 entityInfos.add(EntityInfo.builder().attributeName("bg").purpose("hasA").dataType("string").build());
                 entityInfos.add(EntityInfo.builder().attributeName("site").purpose("hasA").dataType("string").build());
                 entityInfos.add(EntityInfo.builder().attributeName("product").purpose("hasA").dataType("string")
@@ -237,6 +248,7 @@ public class WistronCDM {
                 // Add an import to the foundations doc so the traits about partitions will
                 // resolve nicely.
                 manifestResolved.getImports().add(FOUNDATION_JSON_PATH);
+               // manifestResolved.getImports().add(FACTORY_JSON_PATH + ".cdm.json");
 
                 System.out.println("Save the documents");
                 for (CdmEntityDeclarationDefinition eDef : manifestAbstract.getEntities()) {

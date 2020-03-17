@@ -1,0 +1,74 @@
+{
+  "name" : "factory",
+  "version" : "1.0",
+  "entities" : [
+    {
+      "$type" : "LocalEntity",
+      "name" : "FactoryInfo",
+      "attributes" : [
+        {
+          "name" : "bg",
+          "description" : "所屬事業群",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "factory",
+          "description" : "工廠Site名稱",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "address",
+          "description" : "工廠地址",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "dataType" : "string"
+        },
+        {
+          "name" : "county",
+          "description" : "工廠所屬國家",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "dataType" : "string"
+        }
+      ],
+      "partitions" : [
+        {
+          "name" : "FactoryInfo-data-description",
+          "location" : "https://jasonstorage3.dfs.core.windows.net/powerbi/FactoryInfo/partition-data.csv",
+          "fileFormatSettings" : {
+            "$type" : "CsvFormatSettings",
+            "columnHeaders" : true,
+            "delimiter" : ","
+          }
+        }
+      ],
+      "cdm:imports" : [
+        {
+          "corpusPath" : "FactoryInfo.cdm.json",
+          "moniker" : "resolvedFrom"
+        }
+      ]
+    }
+  ],
+  "cdm:imports" : [
+    {
+      "corpusPath" : "cdm:/foundations.cdm.json"
+    }
+  ]
+}

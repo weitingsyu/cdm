@@ -5,34 +5,54 @@
       "corpusPath" : "cdm:/foundations.cdm.json"
     },
     {
-      "corpusPath" : "cdm:/core/wistron/FinancialBasic.cdm.json"
+      "corpusPath" : "FactoryInfo.cdm.json"
     }
   ],
   "definitions" : [
     {
       "entityName" : "Performance",
-      "extendsEntity" : "FinancialBasic",
-      "displayName" : "Performance",
-      "description" : "This is a Performance entity.",
+      "displayName" : "CustomAccount",
+      "description" : "This is a custom entity created for the sample.",
       "version" : "0.0.1",
       "hasAttributes" : [
         {
-          "name" : "ads",
+          "name" : "xxx",
           "purpose" : "hasA",
-          "dataType" : "float",
-          "description" : "產品庫存量(天數)"
+          "dataType" : "string"
         },
         {
-          "name" : "yieldRate",
+          "name" : "Name",
           "purpose" : "hasA",
-          "dataType" : "float",
-          "description" : "生產良率"
+          "dataType" : "string"
         },
         {
-          "name" : "scrapRate",
-          "purpose" : "hasA",
-          "dataType" : "float",
-          "description" : "生產報廢率"
+          "explanation" : "The owner of the account, which is a person.",
+          "entity" : {
+            "entityReference" : "FactoryInfo",
+            "appliedTraits" : [
+              {
+                "traitReference" : "is.identifiedBy",
+                "arguments" : [
+                  "FactoryInfo/(resolvedAttributes)/FactoryInfoId"
+                ]
+              }
+            ]
+          },
+          "name" : "bg",
+          "resolutionGuidance" : {
+            "renameFormat" : "{m}",
+            "entityByReference" : {
+              "allowReference" : true,
+              "foreignKeyAttribute" : {
+                "name" : "bgId",
+                "purpose" : "identifiedBy",
+                "dataType" : "entityId",
+                "appliedTraits" : [
+                  "is.linkedEntity.identifier"
+                ]
+              }
+            }
+          }
         }
       ]
     }

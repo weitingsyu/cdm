@@ -30,7 +30,7 @@
       "partitions" : [
         {
           "name" : "CustomPerson-data-description",
-          "location" : "/Users/louis/Documents/workspace/cmmi_project/cdm/create_net_new_entity/6-create-net-new-entities/CustomPerson/partition-data.csv",
+          "location" : "https://wsdcdmstorage.dfs.core.windows.net/powerbi/Customer/CustomPerson/partition-data.csv",
           "fileFormatSettings" : {
             "$type" : "CsvFormatSettings",
             "columnHeaders" : true,
@@ -100,7 +100,7 @@
       "partitions" : [
         {
           "name" : "CustomAccount-data-description",
-          "location" : "/Users/louis/Documents/workspace/cmmi_project/cdm/create_net_new_entity/6-create-net-new-entities/CustomAccount/partition-data.csv",
+          "location" : "https://wsdcdmstorage.dfs.core.windows.net/powerbi/Customer/CustomAccount/partition-data.csv",
           "fileFormatSettings" : {
             "$type" : "CsvFormatSettings",
             "columnHeaders" : true,
@@ -4145,7 +4145,7 @@
       "partitions" : [
         {
           "name" : "ExtendedStandardAccount-data-description",
-          "location" : "/Users/louis/Documents/workspace/cmmi_project/cdm/create_net_new_entity/6-create-net-new-entities/ExtendedStandardAccount/partition-data.csv",
+          "location" : "https://wsdcdmstorage.dfs.core.windows.net/powerbi/Customer/ExtendedStandardAccount/partition-data.csv",
           "fileFormatSettings" : {
             "$type" : "CsvFormatSettings",
             "columnHeaders" : true,

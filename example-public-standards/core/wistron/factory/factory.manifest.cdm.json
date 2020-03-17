@@ -1,0 +1,38 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "cdm:/foundations.cdm.json"
+    }
+  ],
+  "manifestName" : "factory",
+  "entities" : [
+    {
+      "type" : "LocalEntity",
+      "entityName" : "FactoryInfo",
+      "entityPath" : "resolved/FactoryInfo.cdm.json/FactoryInfo",
+      "dataPartitions" : [
+        {
+          "name" : "FactoryInfo-data-description",
+          "location" : "adls:/FactoryInfo/partition-data.csv",
+          "exhibitsTraits" : [
+            {
+              "traitReference" : "is.partition.format.CSV",
+              "arguments" : [
+                {
+                  "name" : "columnHeaders",
+                  "value" : "true"
+                },
+                {
+                  "name" : "delimiter",
+                  "value" : ","
+                }
+              ]
+            }
+          ],
+          "arguments" : [ ]
+        }
+      ]
+    }
+  ]
+}

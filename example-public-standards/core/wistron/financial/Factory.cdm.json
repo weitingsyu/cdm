@@ -1,0 +1,42 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "cdm:/foundations.cdm.json"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "Factory",
+      "displayName" : "Factory",
+      "description" : "This is a Factory entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "bg",
+          "purpose" : "hasA",
+          "dataType" : "string",
+          "description" : "所屬事業群"
+        },
+        {
+          "name" : "site",
+          "purpose" : "hasA",
+          "dataType" : "string",
+          "description" : "工廠Site名稱"
+        },
+        {
+          "name" : "address",
+          "purpose" : "hasA",
+          "dataType" : "string",
+          "description" : "工廠地址"
+        },
+        {
+          "name" : "county",
+          "purpose" : "hasA",
+          "dataType" : "string",
+          "description" : "工廠所屬國家"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "/Performance.cdm.json",
+      "moniker" : "resolvedFrom"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "Performance",
+      "attributeContext" : {
+        "type" : "entity",
+        "name" : "Performance",
+        "definition" : "resolvedFrom/Performance",
+        "contents" : [
+          {
+            "type" : "attributeDefinition",
+            "name" : "bg",
+            "parent" : "Performance/attributeContext/Performance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/bg",
+            "contents" : [
+              {
+                "type" : "entity",
+                "name" : "Factory",
+                "parent" : "Performance/attributeContext/Performance/bg",
+                "definition" : "resolvedFrom/Factory"
+              },
+              {
+                "type" : "generatedSet",
+                "name" : "_generatedAttributeSet",
+                "parent" : "Performance/attributeContext/Performance/bg",
+                "contents" : [
+                  {
+                    "type" : "generatedRound",
+                    "name" : "_generatedAttributeRound0",
+                    "parent" : "Performance/attributeContext/Performance/bg/_generatedAttributeSet",
+                    "contents" : [
+                      {
+                        "type" : "addedAttributeIdentity",
+                        "name" : "_foreignKey",
+                        "parent" : "Performance/attributeContext/Performance/bg/_generatedAttributeSet/_generatedAttributeRound0",
+                        "contents" : [
+                          "Performance/hasAttributes/bg"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "site",
+            "parent" : "Performance/attributeContext/Performance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/site",
+            "contents" : [
+              {
+                "type" : "entity",
+                "name" : "Factory",
+                "parent" : "Performance/attributeContext/Performance/site",
+                "definition" : "resolvedFrom/Factory"
+              },
+              {
+                "type" : "generatedSet",
+                "name" : "_generatedAttributeSet",
+                "parent" : "Performance/attributeContext/Performance/site",
+                "contents" : [
+                  {
+                    "type" : "generatedRound",
+                    "name" : "_generatedAttributeRound0",
+                    "parent" : "Performance/attributeContext/Performance/site/_generatedAttributeSet",
+                    "contents" : [
+                      {
+                        "type" : "addedAttributeIdentity",
+                        "name" : "_foreignKey",
+                        "parent" : "Performance/attributeContext/Performance/site/_generatedAttributeSet/_generatedAttributeRound0",
+                        "contents" : [
+                          "Performance/hasAttributes/site"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "product",
+            "parent" : "Performance/attributeContext/Performance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/product",
+            "contents" : [
+              {
+                "type" : "entity",
+                "name" : "Product",
+                "parent" : "Performance/attributeContext/Performance/product",
+                "definition" : "resolvedFrom/Product"
+              },
+              {
+                "type" : "generatedSet",
+                "name" : "_generatedAttributeSet",
+                "parent" : "Performance/attributeContext/Performance/product",
+                "contents" : [
+                  {
+                    "type" : "generatedRound",
+                    "name" : "_generatedAttributeRound0",
+                    "parent" : "Performance/attributeContext/Performance/product/_generatedAttributeSet",
+                    "contents" : [
+                      {
+                        "type" : "addedAttributeIdentity",
+                        "name" : "_foreignKey",
+                        "parent" : "Performance/attributeContext/Performance/product/_generatedAttributeSet/_generatedAttributeRound0",
+                        "contents" : [
+                          "Performance/hasAttributes/product"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "type",
+            "parent" : "Performance/attributeContext/Performance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/type",
+            "contents" : [
+              "Performance/hasAttributes/type"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "reportingMonth",
+            "parent" : "Performance/attributeContext/Performance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/reportingMonth",
+            "contents" : [
+              "Performance/hasAttributes/reportingMonth"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "ads",
+            "parent" : "Performance/attributeContext/Performance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/ads",
+            "contents" : [
+              "Performance/hasAttributes/ads"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "yieldRate",
+            "parent" : "Performance/attributeContext/Performance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/yieldRate",
+            "contents" : [
+              "Performance/hasAttributes/yieldRate"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "scrapRate",
+            "parent" : "Performance/attributeContext/Performance",
+            "definition" : "resolvedFrom/Performance/hasAttributes/scrapRate",
+            "contents" : [
+              "Performance/hasAttributes/scrapRate"
+            ]
+          }
+        ]
+      },
+      "displayName" : "Performance",
+      "description" : "This is a Performance entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "bg",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/Factory.cdm.json/Factory",
+                        "bg"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/bg/_generatedAttributeSet/_generatedAttributeRound0/_foreignKey",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "site",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/Factory.cdm.json/Factory",
+                        "site"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/site/_generatedAttributeSet/_generatedAttributeRound0/_foreignKey",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "product",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/Product.cdm.json/Product",
+                        "product"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/product/_generatedAttributeSet/_generatedAttributeRound0/_foreignKey",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "type",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/type",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "reportingMonth",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/reportingMonth",
+          "dataFormat" : "String"
+        },
+        {
+          "name" : "ads",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/ads",
+          "dataFormat" : "Float",
+          "description" : "產品庫存量(天數)"
+        },
+        {
+          "name" : "yieldRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/yieldRate",
+          "dataFormat" : "Float",
+          "description" : "生產良率"
+        },
+        {
+          "name" : "scrapRate",
+          "appliedTraits" : [
+            "is.dataFormat.floatingPoint"
+          ],
+          "attributeContext" : "Performance/attributeContext/Performance/scrapRate",
+          "dataFormat" : "Float",
+          "description" : "生產報廢率"
+        }
+      ]
+    }
+  ]
+}

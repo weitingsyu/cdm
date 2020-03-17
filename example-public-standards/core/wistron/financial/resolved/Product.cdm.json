@@ -1,0 +1,66 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "/Product.cdm.json",
+      "moniker" : "resolvedFrom"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "Product",
+      "attributeContext" : {
+        "type" : "entity",
+        "name" : "Product",
+        "definition" : "resolvedFrom/Product",
+        "contents" : [
+          {
+            "type" : "attributeDefinition",
+            "name" : "product",
+            "parent" : "Product/attributeContext/Product",
+            "definition" : "resolvedFrom/Product/hasAttributes/product",
+            "contents" : [
+              "Product/hasAttributes/product"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "custom",
+            "parent" : "Product/attributeContext/Product",
+            "definition" : "resolvedFrom/Product/hasAttributes/custom",
+            "contents" : [
+              "Product/hasAttributes/custom"
+            ]
+          }
+        ]
+      },
+      "displayName" : "Product",
+      "description" : "This is a Product entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "product",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "Product/attributeContext/Product/product",
+          "dataFormat" : "String",
+          "description" : "產品名稱"
+        },
+        {
+          "name" : "custom",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "Product/attributeContext/Product/custom",
+          "dataFormat" : "String",
+          "description" : "客戶名稱"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "cdm:/foundations.cdm.json"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "FactoryInfo",
+      "displayName" : "FactoryInfo",
+      "description" : "This is a custom entity created for the sample.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "bg",
+          "purpose" : "hasA",
+          "dataType" : "string"
+        },
+        {
+          "name" : "site",
+          "purpose" : "hasA",
+          "dataType" : "string"
+        }
+      ]
+    }
+  ]
+}

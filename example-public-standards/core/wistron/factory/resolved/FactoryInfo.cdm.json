@@ -1,0 +1,106 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "/FactoryInfo.cdm.json",
+      "moniker" : "resolvedFrom"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "FactoryInfo",
+      "attributeContext" : {
+        "type" : "entity",
+        "name" : "FactoryInfo",
+        "definition" : "resolvedFrom/FactoryInfo",
+        "contents" : [
+          {
+            "type" : "attributeDefinition",
+            "name" : "bg",
+            "parent" : "FactoryInfo/attributeContext/FactoryInfo",
+            "definition" : "resolvedFrom/FactoryInfo/hasAttributes/bg",
+            "contents" : [
+              "FactoryInfo/hasAttributes/bg"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "factory",
+            "parent" : "FactoryInfo/attributeContext/FactoryInfo",
+            "definition" : "resolvedFrom/FactoryInfo/hasAttributes/factory",
+            "contents" : [
+              "FactoryInfo/hasAttributes/factory"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "address",
+            "parent" : "FactoryInfo/attributeContext/FactoryInfo",
+            "definition" : "resolvedFrom/FactoryInfo/hasAttributes/address",
+            "contents" : [
+              "FactoryInfo/hasAttributes/address"
+            ]
+          },
+          {
+            "type" : "attributeDefinition",
+            "name" : "county",
+            "parent" : "FactoryInfo/attributeContext/FactoryInfo",
+            "definition" : "resolvedFrom/FactoryInfo/hasAttributes/county",
+            "contents" : [
+              "FactoryInfo/hasAttributes/county"
+            ]
+          }
+        ]
+      },
+      "displayName" : "FactoryInfo",
+      "description" : "This is a FactoryInfo entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "bg",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "FactoryInfo/attributeContext/FactoryInfo/bg",
+          "dataFormat" : "String",
+          "description" : "所屬事業群"
+        },
+        {
+          "name" : "factory",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "FactoryInfo/attributeContext/FactoryInfo/factory",
+          "dataFormat" : "String",
+          "description" : "工廠Site名稱"
+        },
+        {
+          "name" : "address",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "FactoryInfo/attributeContext/FactoryInfo/address",
+          "dataFormat" : "String",
+          "description" : "工廠地址"
+        },
+        {
+          "name" : "county",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "FactoryInfo/attributeContext/FactoryInfo/county",
+          "dataFormat" : "String",
+          "description" : "工廠所屬國家"
+        }
+      ]
+    }
+  ]
+}

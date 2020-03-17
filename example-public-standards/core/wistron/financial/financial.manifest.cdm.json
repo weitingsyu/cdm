@@ -1,0 +1,157 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "cdm:/foundations.cdm.json"
+    }
+  ],
+  "manifestName" : "financial",
+  "entities" : [
+    {
+      "type" : "LocalEntity",
+      "entityName" : "Factory",
+      "entityPath" : "resolved/Factory.cdm.json/Factory",
+      "dataPartitions" : [
+        {
+          "name" : "Factory-data-description",
+          "location" : "adls:/Factory/partition-data.csv",
+          "exhibitsTraits" : [
+            {
+              "traitReference" : "is.partition.format.CSV",
+              "arguments" : [
+                {
+                  "name" : "columnHeaders",
+                  "value" : "true"
+                },
+                {
+                  "name" : "delimiter",
+                  "value" : ","
+                }
+              ]
+            }
+          ],
+          "arguments" : [ ]
+        }
+      ]
+    },
+    {
+      "type" : "LocalEntity",
+      "entityName" : "Product",
+      "entityPath" : "resolved/Product.cdm.json/Product",
+      "dataPartitions" : [
+        {
+          "name" : "Product-data-description",
+          "location" : "adls:/Product/partition-data.csv",
+          "exhibitsTraits" : [
+            {
+              "traitReference" : "is.partition.format.CSV",
+              "arguments" : [
+                {
+                  "name" : "columnHeaders",
+                  "value" : "true"
+                },
+                {
+                  "name" : "delimiter",
+                  "value" : ","
+                }
+              ]
+            }
+          ],
+          "arguments" : [ ]
+        }
+      ]
+    },
+    {
+      "type" : "LocalEntity",
+      "entityName" : "Performance",
+      "entityPath" : "resolved/Performance.cdm.json/Performance",
+      "dataPartitions" : [
+        {
+          "name" : "Performance-data-description",
+          "location" : "adls:/Performance/partition-data.csv",
+          "exhibitsTraits" : [
+            {
+              "traitReference" : "is.partition.format.CSV",
+              "arguments" : [
+                {
+                  "name" : "columnHeaders",
+                  "value" : "true"
+                },
+                {
+                  "name" : "delimiter",
+                  "value" : ","
+                }
+              ]
+            }
+          ],
+          "arguments" : [ ]
+        }
+      ]
+    },
+    {
+      "type" : "LocalEntity",
+      "entityName" : "IncomeStatment",
+      "entityPath" : "resolved/IncomeStatment.cdm.json/IncomeStatment",
+      "dataPartitions" : [
+        {
+          "name" : "IncomeStatment-data-description",
+          "location" : "adls:/IncomeStatment/partition-data.csv",
+          "exhibitsTraits" : [
+            {
+              "traitReference" : "is.partition.format.CSV",
+              "arguments" : [
+                {
+                  "name" : "columnHeaders",
+                  "value" : "true"
+                },
+                {
+                  "name" : "delimiter",
+                  "value" : ","
+                }
+              ]
+            }
+          ],
+          "arguments" : [ ]
+        }
+      ]
+    }
+  ],
+  "relationships" : [
+    {
+      "fromEntity" : "resolved/Performance.cdm.json/Performance",
+      "fromEntityAttribute" : "bg",
+      "toEntity" : "resolved/Factory.cdm.json/Factory",
+      "toEntityAttribute" : "bg"
+    },
+    {
+      "fromEntity" : "resolved/Performance.cdm.json/Performance",
+      "fromEntityAttribute" : "site",
+      "toEntity" : "resolved/Factory.cdm.json/Factory",
+      "toEntityAttribute" : "site"
+    },
+    {
+      "fromEntity" : "resolved/IncomeStatment.cdm.json/IncomeStatment",
+      "fromEntityAttribute" : "bg",
+      "toEntity" : "resolved/Factory.cdm.json/Factory",
+      "toEntityAttribute" : "bg"
+    },
+    {
+      "fromEntity" : "resolved/IncomeStatment.cdm.json/IncomeStatment",
+      "fromEntityAttribute" : "site",
+      "toEntity" : "resolved/Factory.cdm.json/Factory",
+      "toEntityAttribute" : "site"
+    },
+    {
+      "fromEntity" : "resolved/Performance.cdm.json/Performance",
+      "fromEntityAttribute" : "product",
+      "toEntity" : "resolved/Product.cdm.json/Product",
+      "toEntityAttribute" : "product"
+    },
+    {
+      "fromEntity" : "resolved/IncomeStatment.cdm.json/IncomeStatment",
+      "fromEntityAttribute" : "product",
+      "toEntity" : "resolved/Product.cdm.json/Product",
+      "toEntityAttribute" : "product"
+    }
+  ]
+}
