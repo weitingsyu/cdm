@@ -1,0 +1,24 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "cdm:/foundations.cdm.json"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "ReportingMonth",
+      "displayName" : "ReportingMonth",
+      "description" : "This is a ReportingMonth entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "reportingMonth",
+          "purpose" : "hasA",
+          "dataType" : "string",
+          "description" : "報表日期"
+        }
+      ]
+    }
+  ]
+}
