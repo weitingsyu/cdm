@@ -8,7 +8,10 @@
       "corpusPath" : "Factory.cdm.json"
     },
     {
-      "corpusPath" : "Product.cdm.json"
+      "corpusPath" : "Factory.cdm.json"
+    },
+    {
+      "corpusPath" : "ReportingMonth.cdm.json"
     },
     {
       "corpusPath" : "cdm:/foundations.cdm.json"
@@ -80,14 +83,14 @@
           }
         },
         {
-          "explanation" : "Product Relation",
+          "explanation" : "Product relation",
           "entity" : {
-            "entityReference" : "Product",
+            "entityReference" : "Factory",
             "appliedTraits" : [
               {
                 "traitReference" : "is.identifiedBy",
                 "arguments" : [
-                  "Product/(resolvedAttributes)/product"
+                  "Factory/(resolvedAttributes)/product"
                 ]
               }
             ]
@@ -114,9 +117,33 @@
           "dataType" : "string"
         },
         {
+          "explanation" : "reporting month relation",
+          "entity" : {
+            "entityReference" : "ReportingMonth",
+            "appliedTraits" : [
+              {
+                "traitReference" : "is.identifiedBy",
+                "arguments" : [
+                  "ReportingMonth/(resolvedAttributes)/reportingMonth"
+                ]
+              }
+            ]
+          },
           "name" : "reportingMonth",
-          "purpose" : "hasA",
-          "dataType" : "string"
+          "resolutionGuidance" : {
+            "renameFormat" : "{m}",
+            "entityByReference" : {
+              "allowReference" : true,
+              "foreignKeyAttribute" : {
+                "name" : "reportingMonth",
+                "purpose" : "hasA",
+                "dataType" : "string",
+                "appliedTraits" : [
+                  "is.linkedEntity.identifier"
+                ]
+              }
+            }
+          }
         },
         {
           "name" : "ads",

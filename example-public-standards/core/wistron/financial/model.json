@@ -110,6 +110,39 @@
     },
     {
       "$type" : "LocalEntity",
+      "name" : "ReportingMonth",
+      "attributes" : [
+        {
+          "name" : "reportingMonth",
+          "description" : "報表日期",
+          "cdm:traits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "dataType" : "string"
+        }
+      ],
+      "partitions" : [
+        {
+          "name" : "ReportingMonth-data-description",
+          "location" : "https://wsdcdmstorage.dfs.core.windows.net/powerbi/Financial/ReportingMonth/partition-data.csv",
+          "fileFormatSettings" : {
+            "$type" : "CsvFormatSettings",
+            "columnHeaders" : true,
+            "delimiter" : ","
+          }
+        }
+      ],
+      "cdm:imports" : [
+        {
+          "corpusPath" : "ReportingMonth.cdm.json",
+          "moniker" : "resolvedFrom"
+        }
+      ]
+    },
+    {
+      "$type" : "LocalEntity",
       "name" : "Performance",
       "attributes" : [
         {
@@ -176,7 +209,7 @@
                     "entityShape" : "entityGroupSet",
                     "constantValues" : [
                       [
-                        "/Product.cdm.json/Product",
+                        "/Factory.cdm.json/Factory",
                         "product"
                       ]
                     ]
@@ -201,7 +234,23 @@
           "cdm:traits" : [
             "is.dataFormat.character",
             "is.dataFormat.big",
-            "is.dataFormat.array"
+            "is.dataFormat.array",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/ReportingMonth.cdm.json/ReportingMonth",
+                        "reportingMonth"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
           ],
           "dataType" : "string"
         },
@@ -316,7 +365,7 @@
                     "entityShape" : "entityGroupSet",
                     "constantValues" : [
                       [
-                        "/Product.cdm.json/Product",
+                        "/Factory.cdm.json/Factory",
                         "product"
                       ]
                     ]
@@ -341,7 +390,23 @@
           "cdm:traits" : [
             "is.dataFormat.character",
             "is.dataFormat.big",
-            "is.dataFormat.array"
+            "is.dataFormat.array",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/ReportingMonth.cdm.json/ReportingMonth",
+                        "reportingMonth"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
           ],
           "dataType" : "string"
         },
@@ -463,6 +528,17 @@
     {
       "$type" : "SingleKeyRelationship",
       "fromAttribute" : {
+        "entityName" : "Performance",
+        "attributeName" : "product"
+      },
+      "toAttribute" : {
+        "entityName" : "Factory",
+        "attributeName" : "product"
+      }
+    },
+    {
+      "$type" : "SingleKeyRelationship",
+      "fromAttribute" : {
         "entityName" : "IncomeStatment",
         "attributeName" : "bg"
       },
@@ -480,28 +556,39 @@
       "toAttribute" : {
         "entityName" : "Factory",
         "attributeName" : "site"
+      }
+    },
+    {
+      "$type" : "SingleKeyRelationship",
+      "fromAttribute" : {
+        "entityName" : "IncomeStatment",
+        "attributeName" : "product"
+      },
+      "toAttribute" : {
+        "entityName" : "Factory",
+        "attributeName" : "product"
       }
     },
     {
       "$type" : "SingleKeyRelationship",
       "fromAttribute" : {
         "entityName" : "Performance",
-        "attributeName" : "product"
+        "attributeName" : "reportingMonth"
       },
       "toAttribute" : {
-        "entityName" : "Product",
-        "attributeName" : "product"
+        "entityName" : "ReportingMonth",
+        "attributeName" : "reportingMonth"
       }
     },
     {
       "$type" : "SingleKeyRelationship",
       "fromAttribute" : {
         "entityName" : "IncomeStatment",
-        "attributeName" : "product"
+        "attributeName" : "reportingMonth"
       },
       "toAttribute" : {
-        "entityName" : "Product",
-        "attributeName" : "product"
+        "entityName" : "ReportingMonth",
+        "attributeName" : "reportingMonth"
       }
     }
   ],

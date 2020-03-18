@@ -94,9 +94,9 @@
             "contents" : [
               {
                 "type" : "entity",
-                "name" : "Product",
+                "name" : "Factory",
                 "parent" : "IncomeStatment/attributeContext/IncomeStatment/product",
-                "definition" : "resolvedFrom/Product"
+                "definition" : "resolvedFrom/Factory"
               },
               {
                 "type" : "generatedSet",
@@ -137,7 +137,34 @@
             "parent" : "IncomeStatment/attributeContext/IncomeStatment",
             "definition" : "resolvedFrom/IncomeStatment/hasAttributes/reportingMonth",
             "contents" : [
-              "IncomeStatment/hasAttributes/reportingMonth"
+              {
+                "type" : "entity",
+                "name" : "ReportingMonth",
+                "parent" : "IncomeStatment/attributeContext/IncomeStatment/reportingMonth",
+                "definition" : "resolvedFrom/ReportingMonth"
+              },
+              {
+                "type" : "generatedSet",
+                "name" : "_generatedAttributeSet",
+                "parent" : "IncomeStatment/attributeContext/IncomeStatment/reportingMonth",
+                "contents" : [
+                  {
+                    "type" : "generatedRound",
+                    "name" : "_generatedAttributeRound0",
+                    "parent" : "IncomeStatment/attributeContext/IncomeStatment/reportingMonth/_generatedAttributeSet",
+                    "contents" : [
+                      {
+                        "type" : "addedAttributeIdentity",
+                        "name" : "_foreignKey",
+                        "parent" : "IncomeStatment/attributeContext/IncomeStatment/reportingMonth/_generatedAttributeSet/_generatedAttributeRound0",
+                        "contents" : [
+                          "IncomeStatment/hasAttributes/reportingMonth"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
             ]
           },
           {
@@ -293,7 +320,7 @@
                     "entityShape" : "entityGroupSet",
                     "constantValues" : [
                       [
-                        "/Product.cdm.json/Product",
+                        "/Factory.cdm.json/Factory",
                         "product"
                       ]
                     ]
@@ -320,9 +347,25 @@
           "appliedTraits" : [
             "is.dataFormat.character",
             "is.dataFormat.big",
-            "is.dataFormat.array"
+            "is.dataFormat.array",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/ReportingMonth.cdm.json/ReportingMonth",
+                        "reportingMonth"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
           ],
-          "attributeContext" : "IncomeStatment/attributeContext/IncomeStatment/reportingMonth",
+          "attributeContext" : "IncomeStatment/attributeContext/IncomeStatment/reportingMonth/_generatedAttributeSet/_generatedAttributeRound0/_foreignKey",
           "dataFormat" : "String"
         },
         {

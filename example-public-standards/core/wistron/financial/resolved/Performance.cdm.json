@@ -94,9 +94,9 @@
             "contents" : [
               {
                 "type" : "entity",
-                "name" : "Product",
+                "name" : "Factory",
                 "parent" : "Performance/attributeContext/Performance/product",
-                "definition" : "resolvedFrom/Product"
+                "definition" : "resolvedFrom/Factory"
               },
               {
                 "type" : "generatedSet",
@@ -137,7 +137,34 @@
             "parent" : "Performance/attributeContext/Performance",
             "definition" : "resolvedFrom/Performance/hasAttributes/reportingMonth",
             "contents" : [
-              "Performance/hasAttributes/reportingMonth"
+              {
+                "type" : "entity",
+                "name" : "ReportingMonth",
+                "parent" : "Performance/attributeContext/Performance/reportingMonth",
+                "definition" : "resolvedFrom/ReportingMonth"
+              },
+              {
+                "type" : "generatedSet",
+                "name" : "_generatedAttributeSet",
+                "parent" : "Performance/attributeContext/Performance/reportingMonth",
+                "contents" : [
+                  {
+                    "type" : "generatedRound",
+                    "name" : "_generatedAttributeRound0",
+                    "parent" : "Performance/attributeContext/Performance/reportingMonth/_generatedAttributeSet",
+                    "contents" : [
+                      {
+                        "type" : "addedAttributeIdentity",
+                        "name" : "_foreignKey",
+                        "parent" : "Performance/attributeContext/Performance/reportingMonth/_generatedAttributeSet/_generatedAttributeRound0",
+                        "contents" : [
+                          "Performance/hasAttributes/reportingMonth"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
             ]
           },
           {
@@ -239,7 +266,7 @@
                     "entityShape" : "entityGroupSet",
                     "constantValues" : [
                       [
-                        "/Product.cdm.json/Product",
+                        "/Factory.cdm.json/Factory",
                         "product"
                       ]
                     ]
@@ -266,9 +293,25 @@
           "appliedTraits" : [
             "is.dataFormat.character",
             "is.dataFormat.big",
-            "is.dataFormat.array"
+            "is.dataFormat.array",
+            {
+              "traitReference" : "is.linkedEntity.identifier",
+              "arguments" : [
+                {
+                  "entityReference" : {
+                    "entityShape" : "entityGroupSet",
+                    "constantValues" : [
+                      [
+                        "/ReportingMonth.cdm.json/ReportingMonth",
+                        "reportingMonth"
+                      ]
+                    ]
+                  }
+                }
+              ]
+            }
           ],
-          "attributeContext" : "Performance/attributeContext/Performance/reportingMonth",
+          "attributeContext" : "Performance/attributeContext/Performance/reportingMonth/_generatedAttributeSet/_generatedAttributeRound0/_foreignKey",
           "dataFormat" : "String"
         },
         {

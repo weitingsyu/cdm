@@ -1,0 +1,46 @@
+{
+  "jsonSchemaSemanticVersion" : "0.9.0",
+  "imports" : [
+    {
+      "corpusPath" : "/ReportingMonth.cdm.json",
+      "moniker" : "resolvedFrom"
+    }
+  ],
+  "definitions" : [
+    {
+      "entityName" : "ReportingMonth",
+      "attributeContext" : {
+        "type" : "entity",
+        "name" : "ReportingMonth",
+        "definition" : "resolvedFrom/ReportingMonth",
+        "contents" : [
+          {
+            "type" : "attributeDefinition",
+            "name" : "reportingMonth",
+            "parent" : "ReportingMonth/attributeContext/ReportingMonth",
+            "definition" : "resolvedFrom/ReportingMonth/hasAttributes/reportingMonth",
+            "contents" : [
+              "ReportingMonth/hasAttributes/reportingMonth"
+            ]
+          }
+        ]
+      },
+      "displayName" : "ReportingMonth",
+      "description" : "This is a ReportingMonth entity.",
+      "version" : "0.0.1",
+      "hasAttributes" : [
+        {
+          "name" : "reportingMonth",
+          "appliedTraits" : [
+            "is.dataFormat.character",
+            "is.dataFormat.big",
+            "is.dataFormat.array"
+          ],
+          "attributeContext" : "ReportingMonth/attributeContext/ReportingMonth/reportingMonth",
+          "dataFormat" : "String",
+          "description" : "報表日期"
+        }
+      ]
+    }
+  ]
+}

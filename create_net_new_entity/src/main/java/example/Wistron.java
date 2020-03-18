@@ -54,6 +54,7 @@ public class Wistron {
         private final static String PRODUCT_ENTITY_NAME = "Product";
         private final static String PERFORMANCE_ENTITY_NAME = "Performance";
         private final static String INCOME_STATMENT_ENTITY_NAME = "IncomeStatment";
+        private final static String REPORTING_MONTH_ENTITY_NAME = "ReportingMonth";
 
         private final static String FOUNDATION_JSON_PATH = "cdm:/foundations.cdm.json";
         private final static String pathFromExeToExampleRoot = "./";
@@ -97,42 +98,45 @@ public class Wistron {
 
                 // Create two entities from scratch, and add some attributes, traits,
                 // properties, and relationships in between
-                System.out.println("Create net new entities");
 
                 // Create Factory entity
                 CdmEntityDefinition factory = EntityUtils.createEntity(cdmCorpus, localRoot, FACTORYINFO_ENTITY_NAME,
-                                getFactoryEntity(), null, FOUNDATION_JSON_PATH);
+                                getFactoryEntity(), FOUNDATION_JSON_PATH, false);
                 manifestAbstract.getEntities().add(factory);
 
                 // Create Product entity
                 CdmEntityDefinition product = EntityUtils.createEntity(cdmCorpus, localRoot, PRODUCT_ENTITY_NAME,
-                                getProductEntity(), null, FOUNDATION_JSON_PATH);
+                                getProductEntity(), FOUNDATION_JSON_PATH, false);
                 manifestAbstract.getEntities().add(product);
+
+                // Create Reporting Month entity
+                CdmEntityDefinition reportingMonth = EntityUtils.createEntity(cdmCorpus, localRoot,
+                                REPORTING_MONTH_ENTITY_NAME, getReportingMonthEntity(), FOUNDATION_JSON_PATH, false);
+                manifestAbstract.getEntities().add(reportingMonth);
                 // Create an entity - CustomAccount which has a relationship with the entity
                 // CustomPerson
                 // Create the entity definition instance
-                List<RelationInfo> relations = new ArrayList<RelationInfo>();
+                // List<RelationInfo> relations = new ArrayList<RelationInfo>();
 
-                relations.add(RelationInfo.builder()//
-                                .entityName(FACTORYINFO_ENTITY_NAME)//
-                                .columnName("bg")//
-                                .description("BG relation").build());
-                relations.add(RelationInfo.builder()//
-                                .entityName(FACTORYINFO_ENTITY_NAME)//
-                                .columnName("site")//
-                                .description("Site relation").build());
-                relations.add(RelationInfo.builder()//
-                                .entityName(PRODUCT_ENTITY_NAME)//
-                                .columnName("product")//
-                                .description("Product Relation").build());
+                // relations.add(RelationInfo.builder()//
+                // .entityName(FACTORYINFO_ENTITY_NAME)//
+                // .columnName("bg")//
+                // .description("BG relation").build());
+                // relations.add(RelationInfo.builder()//
+                // .entityName(FACTORYINFO_ENTITY_NAME)//
+                // .columnName("site")//
+                // .description("Site relation").build());
+                // relations.add(RelationInfo.builder()//
+                // .entityName(PRODUCT_ENTITY_NAME)//
+                // .columnName("product")//
+                // .description("Product Relation").build());
 
                 CdmEntityDefinition performance = EntityUtils.createEntity(cdmCorpus, localRoot,
-                                PERFORMANCE_ENTITY_NAME, getPerformanceEntity(), relations, FOUNDATION_JSON_PATH);
+                                PERFORMANCE_ENTITY_NAME, getPerformanceEntity(), FOUNDATION_JSON_PATH, true);
                 manifestAbstract.getEntities().add(performance);
 
                 CdmEntityDefinition incomeStatment = EntityUtils.createEntity(cdmCorpus, localRoot,
-                                INCOME_STATMENT_ENTITY_NAME, getIncomeStatmentEntity(), relations,
-                                FOUNDATION_JSON_PATH);
+                                INCOME_STATMENT_ENTITY_NAME, getIncomeStatmentEntity(), FOUNDATION_JSON_PATH, true);
                 manifestAbstract.getEntities().add(incomeStatment);
 
                 CdmManifestDefinition manifestResolved = manifestAbstract.createResolvedManifestAsync("financial", null)
@@ -171,13 +175,44 @@ public class Wistron {
                 } catch (Exception e) {
                         e.printStackTrace();
                 }
+                try {
+                        DataLakeUtil.saveToDataLake(
+                                        "../" + pathFromExeToExampleRoot + "example-public-standards/pre-data",
+                                        rootFolderName);
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
 
         }
 
         private static List<EntityInfo> getIncomeStatmentEntity() {
                 List<EntityInfo> entityInfos = new ArrayList<EntityInfo>();
+
+                entityInfos.add(EntityInfo.builder()//
+                                .attributeName("bg")//
+                                .relationEntityName(FACTORYINFO_ENTITY_NAME)//
+                                .relationDescription("BG relation")//
+                                .relation(true)//
+                                .build());
+                entityInfos.add(EntityInfo.builder()//
+                                .attributeName("site")//
+                                .relationEntityName(FACTORYINFO_ENTITY_NAME)//
+                                .relationDescription("Site relation")//
+                                .relation(true)//
+                                .build());
+                entityInfos.add(EntityInfo.builder()//
+                                .attributeName("product")//
+                                .relationEntityName(FACTORYINFO_ENTITY_NAME)//
+                                .relationDescription("Product relation")//
+                                .relation(true)//
+                                .build());
                 entityInfos.add(EntityInfo.builder().attributeName("type").purpose("hasA").dataType("string").build());
-                entityInfos.add(EntityInfo.builder().attributeName("reportingMonth").purpose("hasA").dataType("string")
+
+                entityInfos.add(EntityInfo.builder()//
+                                .attributeName("reportingMonth")//
+                                .relationEntityName(REPORTING_MONTH_ENTITY_NAME)//
+                                .relationDescription("reporting month relation")//
+                                .relation(true)//
                                 .build());
                 entityInfos.add(EntityInfo.builder().attributeName("revenue").purpose("hasA").dataType("float")
                                 .description("單月營收").build());
@@ -217,6 +252,15 @@ public class Wistron {
 
         }
 
+        private static List<EntityInfo> getReportingMonthEntity() {
+                List<EntityInfo> entityInfos = new ArrayList<EntityInfo>();
+                entityInfos.add(EntityInfo.builder().attributeName("reportingMonth").purpose("hasA").dataType("string")
+                                .description("報表日期").build());
+
+                return entityInfos;
+
+        }
+
         private static List<EntityInfo> getProductEntity() {
                 List<EntityInfo> entityInfos = new ArrayList<EntityInfo>();
                 entityInfos.add(EntityInfo.builder().attributeName("product").purpose("hasA").dataType("string")
@@ -229,9 +273,34 @@ public class Wistron {
         }
 
         private static List<EntityInfo> getPerformanceEntity() {
+
                 List<EntityInfo> entityInfos = new ArrayList<EntityInfo>();
+
+                entityInfos.add(EntityInfo.builder()//
+                                .attributeName("bg")//
+                                .relationEntityName(FACTORYINFO_ENTITY_NAME)//
+                                .relationDescription("BG relation")//
+                                .relation(true)//
+                                .build());
+                entityInfos.add(EntityInfo.builder()//
+                                .attributeName("site")//
+                                .relationEntityName(FACTORYINFO_ENTITY_NAME)//
+                                .relationDescription("Site relation")//
+                                .relation(true)//
+                                .build());
+                entityInfos.add(EntityInfo.builder()//
+                                .attributeName("product")//
+                                .relationEntityName(FACTORYINFO_ENTITY_NAME)//
+                                .relationDescription("Product relation")//
+                                .relation(true)//
+                                .build());
                 entityInfos.add(EntityInfo.builder().attributeName("type").purpose("hasA").dataType("string").build());
-                entityInfos.add(EntityInfo.builder().attributeName("reportingMonth").purpose("hasA").dataType("string")
+
+                entityInfos.add(EntityInfo.builder()//
+                                .attributeName("reportingMonth")//
+                                .relationEntityName(REPORTING_MONTH_ENTITY_NAME)//
+                                .relationDescription("reporting month relation")//
+                                .relation(true)//
                                 .build());
 
                 entityInfos.add(EntityInfo.builder().attributeName("ads").purpose("hasA").dataType("float")

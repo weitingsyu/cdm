@@ -14,28 +14,19 @@ import com.microsoft.commondatamodel.objectmodel.cdm.CdmTraitReference;
 import com.microsoft.commondatamodel.objectmodel.cdm.CdmTypeAttributeDefinition;
 import com.microsoft.commondatamodel.objectmodel.enums.CdmObjectType;
 
-import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
 public class EntityUtils {
 
         public static CdmEntityDefinition createEntity(CdmCorpusDefinition cdmCorpus, CdmFolderDefinition localRoot,
-                        String entityName, List<EntityInfo> entityInfos, List<RelationInfo> relations,
-                        String fundationJsonPath) {
+                        String entityName, List<EntityInfo> entityInfos, String fundationJsonPath, boolean depends) {
 
                 System.out.println("Create " + entityName + " entities");
                 CdmEntityDefinition entity = null;
                 CdmDocumentDefinition entityDoc = cdmCorpus.makeObject(CdmObjectType.DocumentDef,
                                 entityName + ".cdm.json", false);
-                if (CollectionUtils.isNotEmpty(relations)) {
+                if (!depends) {
                         entity = cdmCorpus.makeObject(CdmObjectType.EntityDef, entityName, false);
-                        for (RelationInfo relationInfo : relations) {
-                                CdmEntityAttributeDefinition attribute = createAttributeForRelationshipBetweenTwoEntities(
-                                                cdmCorpus, relationInfo.getEntityName(), relationInfo.getColumnName(),
-                                                relationInfo.getDescription());
-                                entity.getAttributes().add(attribute);
-                                entityDoc.getImports().add(relationInfo.getEntityName() + ".cdm.json");
-                        }
 
                 } else {
                         entity = cdmCorpus.makeObject(CdmObjectType.EntityDef, entityName);
@@ -44,14 +35,25 @@ public class EntityUtils {
                 for (
 
                 EntityInfo entityInfo : entityInfos) {
-                        CdmTypeAttributeDefinition attribute = createEntityAttributeWithPurposeAndDataType(cdmCorpus,
-                                        entityInfo.getAttributeName(), //
-                                        entityInfo.getPurpose(), //
-                                        entityInfo.getDataType()//
 
-                        );
-                        attribute.updateDescription(entityInfo.getDescription());
-                        entity.getAttributes().add(attribute);
+                        if (!entityInfo.isRelation()) {
+
+                                CdmTypeAttributeDefinition attribute = createEntityAttributeWithPurposeAndDataType(
+                                                cdmCorpus, entityInfo.getAttributeName(), //
+                                                entityInfo.getPurpose(), //
+                                                entityInfo.getDataType()//
+
+                                );
+                                attribute.updateDescription(entityInfo.getDescription());
+                                entity.getAttributes().add(attribute);
+                        } else {
+                                System.out.println(entityInfo.getAttributeName());
+                                CdmEntityAttributeDefinition attribute = createAttributeForRelationshipBetweenTwoEntities(
+                                                cdmCorpus, entityInfo.getRelationEntityName(),
+                                                entityInfo.getAttributeName(), entityInfo.getRelationDescription());
+                                entity.getAttributes().add(attribute);
+                                entityDoc.getImports().add(entityInfo.getRelationEntityName() + ".cdm.json");
+                        }
                 }
                 entity.setDisplayName(entityName);
                 entity.setVersion("0.0.1");
@@ -225,8 +227,7 @@ public class EntityUtils {
                 attributeResolution.setRenameFormat("{m}");
 
                 CdmTypeAttributeDefinition entityAttribute = createEntityAttributeWithPurposeAndDataType(cdmCorpus,
-                                foreignKeyName
-                                , "hasA", "string");
+                                foreignKeyName, "hasA", "string");
                 attributeResolution.getEntityByReference().setForeignKeyAttribute(entityAttribute);
                 entityAttributeDef.setResolutionGuidance(attributeResolution);
                 return entityAttributeDef;
