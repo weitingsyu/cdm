@@ -120,3 +120,7 @@ public class Program {
         manifest.saveAsAsync("model.json", true).get();
     }
 }
+
+sudo docker run -d -v  /usr/local/yashin/postgres/data:/var/lib/postgresql/data -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo -e POSTGRES_DB=postgres --name db postgres:10
+
+sudo docker run -v /usr/local/yashin/odoo/addons:/mnt/extra-addons -v /usr/local/yashin/odoo/config:/etc/odoo -d -p 8069:8069 --name odoo --link db:db -t odoo
