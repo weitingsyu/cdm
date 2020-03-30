@@ -72,7 +72,7 @@ public class Wistron {
                 cdmCorpus.getStorage().mount("local", new LocalAdapter(localPath));
 
                 cdmCorpus.getStorage().setDefaultNamespace("local");
-                final AdlsAdapter adlsAdapter = new AdlsAdapter("wsdcdmstorage.dfs.core.windows.net", // Hostname.
+                final AdlsAdapter adlsAdapter = new AdlsAdapter("wsdcdmstorageprd.dfs.core.windows.net", // Hostname.
                                 "/powerbi/Financial", // Root.
                                 "69a44e1e-8420-46e1-b62c-888963ec4c3b", // Tenant ID.
                                 "b3b6e653-8e60-4d71-8690-e573c3c5863b", // Client ID.

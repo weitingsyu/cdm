@@ -14,8 +14,8 @@ import com.azure.storage.file.datalake.DataLakeServiceClient;
 import com.azure.storage.file.datalake.DataLakeServiceClientBuilder;
 
 public class DataLakeUtil {
-    private static String storage_acccount_name_url = "https://wsdcdmstorage.blob.core.windows.net/"; // <your-storage-account-url>
-    private static String sas_token = "?sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2020-03-20T10:10:53Z&st=2020-03-09T02:10:53Z&spr=https&sig=1OOq8%2FKJ%2BUudeZsI3hqGrMBDmokcc8I%2Fh3ZBAN6YJXY%3D"; // <your-sasToken>
+    private static String storage_acccount_name_url = "https://wsdcdmstorageprd.blob.core.windows.net/"; // <your-storage-account-url>
+    private static String sas_token = "?sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2021-03-30T09:37:19Z&st=2020-03-30T01:37:19Z&spr=https,http&sig=WfhLmw6%2BWtZkQkqGAhtbY0uHxLOT7w39oLJ7AZjEwTg%3D"; // <your-sasToken>
 
     public static void saveToDataLake(String filePath, String rootPath)
             throws InterruptedException, ExecutionException, IOException {
