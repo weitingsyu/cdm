@@ -1,0 +1,625 @@
+{
+    "type": "record",
+    "name": "Ecr",
+    "namespace": "ext.wistron.kafka.avro",
+    "fields": [
+        {
+            "name": "Coverpage",
+            "type": [
+                "null",
+                {
+                    "type": "record",
+                    "name": "Coverpage",
+                    "fields": [
+                        {
+                            "name": "SYNC_ID",
+                            "type": [
+                                "null",
+                                {
+                                    "type": "long",
+                                    "java-class": "java.lang.Long"
+                                }
+                            ],
+                            "doc": "Sequential ID",
+                            "default": null
+                        },
+                        {
+                            "name": "SYNC_TS",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Keep track of time when inserting the table",
+                            "default": null
+                        },
+                        {
+                            "name": "SYNC_OP",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "I-Insert U-Update",
+                            "default": null
+                        },
+                        {
+                            "name": "CREATOR",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Created By",
+                            "default": null
+                        },
+                        {
+                            "name": "ECR_NO",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "ECR NO",
+                            "default": null
+                        },
+                        {
+                            "name": "ECN_SUBJECT",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "ECN Subject",
+                            "default": null
+                        },
+                        {
+                            "name": "ECN_NO",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "ECN NO",
+                            "default": null
+                        },
+                        {
+                            "name": "PROCESS_FLOW_FLAG",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Stage",
+                            "default": null
+                        },
+                        {
+                            "name": "ISSUE_DATE",
+                            "type": [
+                                "null",
+                                {
+                                    "type": "long",
+                                    "logicalType": "timestamp-millis",
+                                    "java-class": "java.util.Date"
+                                }
+                            ],
+                            "doc": "ECR Log-in Date",
+                            "default": null
+                        },
+                        {
+                            "name": "FINISHED_DATE",
+                            "type": [
+                                "null",
+                                {
+                                    "type": "long",
+                                    "logicalType": "timestamp-millis",
+                                    "java-class": "java.util.Date"
+                                }
+                            ],
+                            "doc": "Finish Date",
+                            "default": null
+                        },
+                        {
+                            "name": "MODELNO1",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Project Code",
+                            "default": null
+                        },
+                        {
+                            "name": "ACRPRJNAME",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Project Name",
+                            "default": null
+                        },
+                        {
+                            "name": "ROLE_SETTING_NAME",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Role Setting Name",
+                            "default": null
+                        },
+                        {
+                            "name": "REASON_FOR_CHANGE",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": " Reason Of Change",
+                            "default": null
+                        },
+                        {
+                            "name": "DESCRIPTION",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Description Of Change",
+                            "default": null
+                        },
+                        {
+                            "name": "APPLY_BRAND",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Customer",
+                            "default": null
+                        },
+                        {
+                            "name": "QMTYPE",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Product Line",
+                            "default": null
+                        },
+                        {
+                            "name": "EMC_SAFETY",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "EMC Safety",
+                            "default": null
+                        },
+                        {
+                            "name": "CHANGE_FROM_SHIPMENT_OF",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Change Method",
+                            "default": null
+                        },
+                        {
+                            "name": "BATCH_TEST",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Batch Required",
+                            "default": null
+                        },
+                        {
+                            "name": "BATCH_PLANT",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Plant for Batch",
+                            "default": null
+                        },
+                        {
+                            "name": "AFFECTEDITEM_BOM_PLANT",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Affecteditem BOM Plant",
+                            "default": null
+                        },
+                        {
+                            "name": "COST_DOWN",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": " Cost Down",
+                            "default": null
+                        },
+                        {
+                            "name": "REWORK",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Rework",
+                            "default": null
+                        },
+                        {
+                            "name": "SCRAP",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "SCRAP",
+                            "default": null
+                        },
+                        {
+                            "name": "ECRURL",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "ECR Link",
+                            "default": null
+                        },
+                        {
+                            "name": "PROFITCENTERDISP",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Profitcenter",
+                            "default": null
+                        },
+                        {
+                            "name": "BG_NAME",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "BG",
+                            "default": null
+                        },
+                        {
+                            "name": "BU_NAME",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "BU",
+                            "default": null
+                        },
+                        {
+                            "name": "PRODUCT_TYPE",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "Product Type",
+                            "default": null
+                        },
+                        {
+                            "name": "LAST_UPDATED",
+                            "type": [
+                                "null",
+                                {
+                                    "type": "long",
+                                    "logicalType": "timestamp-millis",
+                                    "java-class": "java.util.Date"
+                                }
+                            ],
+                            "doc": "Last Modified",
+                            "default": null
+                        },
+                        {
+                            "name": "ECO_PLANT",
+                            "type": [
+                                "null",
+                                "string"
+                            ],
+                            "doc": "ECO Plant",
+                            "default": null
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "AffecteditemList",
+            "type": [
+                "null",
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "record",
+                        "name": "Affecteditem",
+                        "fields": [
+                            {
+                                "name": "ECNO",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "EC Number",
+                                "default": null
+                            },
+                            {
+                                "name": "BATCHNO",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "Batch Nubmer",
+                                "default": null
+                            },
+                            {
+                                "name": "ACTION",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "ADCOS",
+                                "default": null
+                            },
+                            {
+                                "name": "PARENTNUMBER",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "Parent Number",
+                                "default": null
+                            },
+                            {
+                                "name": "PARENTNAME",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "Parent Name",
+                                "default": null
+                            },
+                            {
+                                "name": "ORIGPARTNUMBER",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "Part Number",
+                                "default": null
+                            },
+                            {
+                                "name": "ORIGPARTNAME",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "Part Name",
+                                "default": null
+                            },
+                            {
+                                "name": "NEWPARTNUMBER",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "New Part Number",
+                                "default": null
+                            },
+                            {
+                                "name": "NEWPARTNAME",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "New Part Name",
+                                "default": null
+                            },
+                            {
+                                "name": "ORIGQTY",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "Orig Qty",
+                                "default": null
+                            },
+                            {
+                                "name": "NEWQTY",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "New Qty",
+                                "default": null
+                            },
+                            {
+                                "name": "ORIGLOCATION",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "ORIG LOCATION",
+                                "default": null
+                            },
+                            {
+                                "name": "NEWLOCATION",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "NEW LOCATION",
+                                "default": null
+                            },
+                            {
+                                "name": "ADDSUBS",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "Adds Subs Part No",
+                                "default": null
+                            },
+                            {
+                                "name": "ADDSUBSNAME",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "Adds Subs Part Name",
+                                "default": null
+                            },
+                            {
+                                "name": "DELETESUBS",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "Del Subs Part No",
+                                "default": null
+                            },
+                            {
+                                "name": "DELETESUBSNAME",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "Del Subs Part Name",
+                                "default": null
+                            },
+                            {
+                                "name": "STATUS",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "Tansfer Status",
+                                "default": null
+                            },
+                            {
+                                "name": "REVISION",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "0 or 1",
+                                "default": null
+                            },
+                            {
+                                "name": "BOM_UNIT",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "BOM Unit",
+                                "default": null
+                            },
+                            {
+                                "name": "PART_KIND",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "MEGreen or SWFW or null",
+                                "default": null
+                            },
+                            {
+                                "name": "LAST_UPDATED",
+                                "type": [
+                                    "null",
+                                    {
+                                        "type": "long",
+                                        "logicalType": "timestamp-millis",
+                                        "java-class": "java.util.Date"
+                                    }
+                                ],
+                                "doc": "Last Modified",
+                                "default": null
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ApprovallogList",
+            "type": [
+                "null",
+                {
+                    "type": "array",
+                    "items": {
+                        "type": "record",
+                        "name": "Approvallog",
+                        "fields": [
+                            {
+                                "name": "ECR_NO",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "ECR NO",
+                                "default": null
+                            },
+                            {
+                                "name": "STAGE",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "Sign-Off Stage",
+                                "default": null
+                            },
+                            {
+                                "name": "COSIGN_TYPE",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "Sign-Off Type",
+                                "default": null
+                            },
+                            {
+                                "name": "COSIGN_USER",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "Sign-Off User",
+                                "default": null
+                            },
+                            {
+                                "name": "COSIGNYN",
+                                "type": [
+                                    "null",
+                                    "string"
+                                ],
+                                "doc": "Sign-Off Status",
+                                "default": null
+                            },
+                            {
+                                "name": "RECEIVED_TIME",
+                                "type": [
+                                    "null",
+                                    {
+                                        "type": "long",
+                                        "logicalType": "timestamp-millis",
+                                        "java-class": "java.util.Date"
+                                    }
+                                ],
+                                "doc": "Last Received Time",
+                                "default": null
+                            },
+                            {
+                                "name": "COSIGN_DATE",
+                                "type": [
+                                    "null",
+                                    {
+                                        "type": "long",
+                                        "logicalType": "timestamp-millis",
+                                        "java-class": "java.util.Date"
+                                    }
+                                ],
+                                "doc": "Sign-Off Time",
+                                "default": null
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
